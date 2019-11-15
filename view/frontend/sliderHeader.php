@@ -2,7 +2,6 @@
 
     <div class="header">
         <div id="bg"></div>
-        <h2 class="header_title">Toronto</h2>
     </div>
 
     <section class="heager_bg_section">

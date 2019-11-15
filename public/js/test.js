@@ -34,7 +34,7 @@ let headerBg = document.getElementById("bg");
 window.addEventListener("scroll", function() {
     headerBg.style.opacity = 1 - +window.pageYOffset / 550 + "";
     headerBg.style.top = +window.pageYOffset + "px";
-    headerBg.style.backgroundPositionY = -+window.pageYOffset / 5 + "px";
+    headerBg.style.backgroundPositionY = -+window.pageYOffset / 4 + "px";
 });
 
 // Call Weather API
@@ -58,7 +58,9 @@ class GetWeather {
                 let description = data.weather[0].description;
                 let icon = data.weather[0].icon;
                 let temperature = Math.round(data.main.temp);
-                document.getElementById(`${weathField}`).innerHTML = `${temperature}` + "°" + " -> " + `${description}`;
+                //  document.getElementById(`${weathField}`).innerHTML = `${temperature}` + "°" + " -> " + `${description}`;
+                document.getElementById(`${weathField}`).innerHTML = `${temperature}` + "°";
+
                 document.getElementById(`${weathIcon}`).innerHTML =
                     "<img class=" +
                     " image-fluid " +

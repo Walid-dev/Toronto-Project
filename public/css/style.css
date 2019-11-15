@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: rgb(20, 20, 20);
+    color: #fff;
+}
+
+section {
+    padding: 70px 30px;
+    min-height: 100vh;
+}
+
+/** Progress Scrolling Bar **/
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+#progressBar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 6px;
+    border-radius: 4px;
+    background: linear-gradient(to top, #fcb045, #fd1d1d, #833ab4);
+    z-index: 3;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+/** TinyMce **/
+
+.tox-notifications-container {
+    display: none;
+}
+
+.blue {
+    background: #00d8ff;
+}
+
+.deepPink {
+    background: #ff00cc;
+}
+
+.lime {
+    background: #68f700;
+}
+
+.yellow {
+    background: #ffff66;
+}
+
+.jeans {
+    background: #5dadec;
+}
+
+.clearPink {
+    background: #ff6eff;
+}
+
+.orange {
+    background: #ff9933;
+}
+
+.test {
+    height: 100vh;
+    background: gainsboro;
+}

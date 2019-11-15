@@ -1,4 +1,4 @@
-<section id="page" class="mt-5 mb-5">
+<div id="page">
     <header>En-tête</header>
     <nav>
         <div id="mapid"></div>
@@ -12,4 +12,4 @@
         </div>
     </main>
     <footer>Pied de page</footer>
-</section>
+</div>

@@ -11,9 +11,9 @@ require_once('model/loginSystemManager.php');
 
 // Check and register the submitted values
 
-function test()
+function home()
 {
-    require('view/frontend/test.php');
+    require('view/frontend/homeView.php');
 }
 
 function sliderHeader()
@@ -29,4 +29,21 @@ function meteoBanner()
 function mapSection()
 {
     require('view/frontend/mapSection.php');
+}
+
+function addPost()
+{
+    require('view/backend/addPostView.php');
+}
+
+function addPostTest()
+{
+    require('view/backend/addPostTestView.php');
+}
+
+function displayAlertMessage()
+{
+    if (isset($_SESSION['message'])) {
+        require "view/frontend/alertMsgView.php";
+    }
 }
