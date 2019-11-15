@@ -47,3 +47,59 @@ function displayAlertMessage()
         require "view/frontend/alertMsgView.php";
     }
 }
+
+function articleSection()
+{
+    require "view/frontend/articlesView.php";
+}
+
+
+// Signup / Signin Section
+
+function displayModal()
+{
+    if (isset($_SESSION['userId'])) {
+        require "view/frontend/logModalView.php";
+    } else {
+        require "view/frontend/signupModalView.php";
+    }
+}
+
+// Check and register the submitted values
+function addUser()
+{
+    $loginSystemManager = new LoginSystemManager();
+    $addUser = $loginSystemManager->addUser();
+
+    $_SESSION['message'] = "Votre compte à bien été crée.";
+    $_SESSION['msg_type'] = "info";
+}
+
+// Check submitted values and give access
+function login()
+{
+    $loginSystemManager = new LoginSystemManager();
+    $addUser = $loginSystemManager->login();
+}
+
+// Deconnect Users / Close Session
+function logout()
+{
+    $loginSystemManager = new LoginSystemManager();
+    $logout = $loginSystemManager->logout();
+}
+
+
+
+// Check the usertype and display or not the admin buttons on the header
+
+function checkUserTypeOnHeader()
+{
+    if (isset($_SESSION['usertype'])) {
+        // Check if the user is an Admin to display admin buttons
+        if (($_SESSION['usertype'] == 2)) {
+            require('view/frontend/adminButtonsView2.php');
+        }
+    }
+}
+

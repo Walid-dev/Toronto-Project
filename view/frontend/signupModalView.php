@@ -94,4 +94,4 @@
     <!--Modal: Login / Register Form-->
 
 
-    <a href="" class="up btn log_btn mx-3" data-toggle="modal" data-target="#modalLRForm">Créer un compte / Se connecter</a>
+    <a href="" class="nav_section_link" data-toggle="modal" data-target="#modalLRForm">Créer un compte / Se connecter</a>

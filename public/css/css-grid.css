@@ -1,0 +1,206 @@
+/** Map Section Grid **/
+
+#mapid,
+#mapid2 {
+    height: 100%;
+    width: 100%;
+    border: 2px solid #eeb83b96;
+    border-radius: 20px;
+    z-index: 0;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+#page {
+    display: grid;
+    width: 100%;
+    height: 80vh;
+    grid-gap: 8px;
+    grid-template-areas:
+        "head head"
+        "nav  main"
+        "nav  foot";
+    grid-template-rows: 60px 1fr 75px;
+    grid-template-columns: 1.2fr 1fr;
+}
+
+#page > header {
+    grid-area: head;
+    align-self: center;
+    border: 2px solid #eeb83b96;
+    padding: 12px 8px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+#page > nav {
+    grid-area: nav;
+}
+
+#page > main {
+    grid-area: main;
+    align-self: center;
+    height: 100%;
+    border: 2px solid #eeb83b96;
+    padding: 1rem;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+#page > footer {
+    grid-area: foot;
+    align-self: center;
+    height: 100%;
+    padding: 12px 8px;
+    border: 2px solid #eeb83b96;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    border-radius: 5px;
+}
+
+.wrapper > div {
+    border-radius: 5px;
+    background-color: #ffd8a8;
+    padding: 1em;
+    color: #d9480f;
+}
+
+.meteo_wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    padding: 0 10px;
+    margin-top: 10vh;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.meteo_wrapper > div {
+    border-radius: 2px;
+    color: #272727;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.meteo_wrapper > div:nth-child(1) {
+    background: #00d8ff;
+}
+
+.meteo_wrapper > div:nth-child(2) {
+    background: #ff00cc;
+    color: #fff;
+}
+
+.meteo_wrapper > div:nth-child(3) {
+    background: #68f700;
+}
+
+.meteo_wrapper > div:nth-child(4) {
+    background: #ff9933;
+}
+
+.meteo_wrapper > div:nth-child(5) {
+    background: #ff6eff;
+    color: #fff;
+}
+
+.meteo_wrapper img {
+    width: 40px;
+}
+
+.article_wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: flex-start;
+    grid-gap: 10px;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.article_wrapper > div {
+    border-radius: 5px;
+    background-color: #76838225;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.form_wrapper {
+    display: grid;
+    width: 100%;
+    height: 80vh;
+    grid-gap: 8px;
+    grid-template-areas:
+        "head head"
+        "nav  main"
+        "nav  foot";
+    grid-template-rows: 60px 1fr 75px;
+    grid-template-columns: 1.2fr 1fr;
+    border: 1px solid lime;
+}
+
+
+.form_wrapper > header {
+    grid-area: head;
+   
+}
+
+.form_wrapper > nav {
+    grid-area: nav;
+}
+
+.form_wrapper > main {
+    grid-area: main;
+    align-self: center;
+    height: 100%;
+    border: 2px solid #eeb83b96;
+    padding: 1rem;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.form_wrapper > footer {
+    grid-area: foot;
+    align-self: center;
+    height: 100%;
+    padding: 12px 8px;
+    border: 2px solid #eeb83b96;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
