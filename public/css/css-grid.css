@@ -137,11 +137,11 @@
 
 .article_wrapper {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    align-items: flex-start;
-    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+    grid-auto-flow: dense;
+    /**  grid-auto-rows: minmax(300px, 900px); **/
+    grid-gap: 20px;
     border-radius: 5px;
-    padding: 30px;
 }
 
 .article_wrapper > div {
@@ -150,10 +150,8 @@
     padding: 1em;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    height: fit-content;
 }
-
 
 .form_wrapper {
     display: grid;
@@ -169,10 +167,8 @@
     border: 1px solid lime;
 }
 
-
 .form_wrapper > header {
     grid-area: head;
-   
 }
 
 .form_wrapper > nav {

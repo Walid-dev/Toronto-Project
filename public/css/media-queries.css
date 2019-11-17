@@ -113,11 +113,4 @@
         grid-gap: 10px;
         border-radius: 5px;
     }
-
-    .article_wrapper {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0;
-        grid-gap: 20px;
-    }
 }

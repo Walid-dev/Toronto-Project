@@ -92,14 +92,3 @@ function logout()
 
 
 // Check the usertype and display or not the admin buttons on the header
-
-function checkUserTypeOnHeader()
-{
-    if (isset($_SESSION['usertype'])) {
-        // Check if the user is an Admin to display admin buttons
-        if (($_SESSION['usertype'] == 2)) {
-            require('view/frontend/adminButtonsView2.php');
-        }
-    }
-}
-

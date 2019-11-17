@@ -73,7 +73,6 @@ class LoginSystemManager extends Manager
                 $_SESSION['userUid'] = $user['uidUsers'];
                 $_SESSION['usertype'] = $user['type'];
 
-                require('view/frontend/headerView.php');
 
                 header("Location: index.php?login=success");
 

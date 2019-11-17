@@ -73,3 +73,21 @@ section {
     height: 100vh;
     background: gainsboro;
 }
+
+/** Modal **/
+
+.modal-content {
+    background: #272727;
+}
+
+.nav-link.active {
+    background: #5dadec !important;
+}
+
+.nav-link {
+    background: #272727 !important;
+}
+
+.alert-info {
+    z-index: 2;
+}

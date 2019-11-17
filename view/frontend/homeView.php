@@ -18,9 +18,7 @@
     <?= addPost(); ?>
 
 </section>
-<section> <div class="">
-            <?= displayModal() ?>
-        </div></section>
+
 
 
 <?php $content = ob_get_clean(); ?>

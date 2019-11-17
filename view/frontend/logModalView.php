@@ -1,4 +1,3 @@
-<form class="form my-2 my-lg-0" action="index.php" method="post">
-    <?= checkUserTypeOnHeader() ?>
-    <button class="nav_section_link" type="submit" name="logout-submit">Logout</button>
+<form class="form" action="index.php" method="post">
+    <button class="up btn btn-sm btn-warning" type="submit" name="logout-submit">Logout</button>
 </form>
