@@ -41,6 +41,25 @@ section {
     display: none;
 }
 
+.tox-tinymce {
+    height: 100% !important;
+    border-radius: 0.25rem !important;
+    -webkit-border-radius: 0.25rem !important;
+    -moz-border-radius: 0.25rem !important;
+    -ms-border-radius: 0.25rem !important;
+    -o-border-radius: 0.25rem !important;
+}
+
+.tox-menubar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.tox-statusbar {
+    display: none !important;
+}
+
 .blue {
     background: #00d8ff;
 }

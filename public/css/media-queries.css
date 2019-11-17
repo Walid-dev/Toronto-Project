@@ -113,4 +113,18 @@
         grid-gap: 10px;
         border-radius: 5px;
     }
+
+    .form_wrapper {
+        display: grid;
+        width: 100%;
+        min-height: 80vh;
+        grid-gap: 8px;
+        grid-template-areas:
+            "head head"
+            "nav  nav"
+            "main main"
+            "foot  foot";
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-rows: 20px 1fr 1fr 20px;
+    }
 }
