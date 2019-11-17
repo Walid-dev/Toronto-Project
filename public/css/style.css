@@ -88,6 +88,10 @@ section {
     background: #272727 !important;
 }
 
-.alert-info {
+#infoText {
     z-index: 2;
+    position: absolute;
+    top: 10vh;
+    width: 100%;
+    text-align: center;
 }

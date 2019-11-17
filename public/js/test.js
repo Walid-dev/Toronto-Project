@@ -85,6 +85,7 @@ const torontoWeather = new GetWeather(
     "torontoWeath",
     "torontoIcon"
 );
+
 const montrealWeather = new GetWeather(
     "360cccc6e22db8194872d3b393f23d91",
     "montreal",
@@ -92,6 +93,7 @@ const montrealWeather = new GetWeather(
     "montrealWeath",
     "montrealIcon"
 );
+
 const ottawaWeather = new GetWeather(
     "360cccc6e22db8194872d3b393f23d91",
     "ottawa",
@@ -99,6 +101,7 @@ const ottawaWeather = new GetWeather(
     "ottawaWeath",
     "ottawaIcon"
 );
+
 const vancouverWeather = new GetWeather(
     "360cccc6e22db8194872d3b393f23d91",
     "vancouver",
@@ -106,6 +109,7 @@ const vancouverWeather = new GetWeather(
     "vancouverWeath",
     "vancouverIcon"
 );
+
 const parisWeather = new GetWeather("360cccc6e22db8194872d3b393f23d91", "paris", "france", "parisWeath", "parisIcon");
 
 torontoWeather.displayData();
@@ -143,3 +147,9 @@ mymap.on("click", function() {
         mymap.scrollWheelZoom.enable();
     }
 });
+
+// Alert message Show and Hide
+
+$("#infoText")
+    .delay(1000)
+    .fadeOut(2000);

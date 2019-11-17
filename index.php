@@ -4,15 +4,16 @@ require('controller/frontendController.php');
 
 try {
     if (isset($_GET['error'])) {
-        echo "error";
-     } elseif (isset($_POST['login-submit'])) {
+        if ($_GET['error'] == "wrongpwd") {
+            throw new Exception('Mot de passe incorrect');
+        }
+    } elseif (isset($_POST['login-submit'])) {
         login();
     } elseif (isset($_POST['signup-submit'])) {
         addUser();
     } elseif (isset($_POST['logout-submit'])) {
         logout();
-    }
-     else {
+    } else {
         home();
     }
 } catch (Exception $e) {

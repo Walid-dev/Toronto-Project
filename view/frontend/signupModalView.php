@@ -83,4 +83,4 @@
 
 
 
-    <a href="" class="up btn btn-md btn-info ml-5" data-toggle="modal" data-backdrop="false" data-target="#modalLRForm">Connection</a>
+    <a href="" class="up btn btn-md btn-info" data-toggle="modal" data-backdrop="false" data-target="#modalLRForm">Connection</a>

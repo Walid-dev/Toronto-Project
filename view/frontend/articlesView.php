@@ -25,7 +25,6 @@
         <hr>
         <img class="img-fluid mb-3" src="public/images/img7.jpg" alt="">
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam explicabo harum pariatur blanditiis, maxime veniam dolorem laboriosam ullam commodi ea officiis molestiae minus voluptatem rerum nesciunt libero asperiores vitae quidem?</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Ducimus deserunt nostrum facere eos odio quisquam sunt voluptates corrupti, incidunt assumenda vel explicabo. Facere cum quae facilis eos quasi?</p>
         <button class="btn btn-md btn-danger mt-3 mb-2">Click Me</button>
     </div>
     <div>
