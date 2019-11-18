@@ -4,13 +4,13 @@
 #mapid2 {
     height: 100%;
     width: 100%;
-    border: 2px solid #eeb83b96;
-    border-radius: 20px;
+    border: 2px solid #5daeec;
     z-index: 0;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
 }
 
 #page {
@@ -28,14 +28,10 @@
 
 #page > header {
     grid-area: head;
+    text-align: center;
     align-self: center;
-    border: 2px solid #eeb83b96;
+    border: 1px solid #5daeec;
     padding: 12px 8px;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
 }
 
 #page > nav {
@@ -46,13 +42,8 @@
     grid-area: main;
     align-self: center;
     height: 100%;
-    border: 2px solid #eeb83b96;
+    border: 1px solid #5daeec;
     padding: 1rem;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
 }
 
 #page > footer {
@@ -60,12 +51,7 @@
     align-self: center;
     height: 100%;
     padding: 12px 8px;
-    border: 2px solid #eeb83b96;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+    border: 1px solid #5daeec;
 }
 
 .wrapper {
@@ -84,55 +70,34 @@
 
 .meteo_wrapper {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-    padding: 0 10px;
-    margin-top: 10vh;
-    border-radius: 2px;
-    font-size: 0.9rem;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    justify-content: center;
+    grid-column-gap: 12px;
+    grid-row-gap: 18px;
+    padding: 90px 10px;
 }
 
 .meteo_wrapper > div {
-    border-radius: 2px;
+    font-size: 1.15rem;
     color: #272727;
     height: 30px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 3px solid rgba(255, 192, 203, 0.09);
+    height: 180px;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 2px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
 }
 
-.meteo_wrapper > div:nth-child(1) {
-    background: #00d8ff;
-}
-
-.meteo_wrapper > div:nth-child(2) {
-    background: #ff00cc;
-    color: #fff;
-}
-
-.meteo_wrapper > div:nth-child(3) {
-    background: #68f700;
-}
-
-.meteo_wrapper > div:nth-child(4) {
-    background: #ff9933;
-}
-
-.meteo_wrapper > div:nth-child(5) {
-    background: #ff6eff;
-    color: #fff;
-}
-
 .meteo_wrapper img {
-    width: 40px;
+    width: 80px;
 }
 
 .article_wrapper {
@@ -171,7 +136,7 @@
     padding: 0.75rem;
     align-self: center;
     text-align: center;
-    border: 1px solid #5dadec24;
+    border: 1px solid #5daeec;
     border-radius: 0.25rem;
     -webkit-border-radius: 0.25rem;
     -moz-border-radius: 0.25rem;
@@ -187,7 +152,7 @@
 .form_wrapper > .form_wrapper_inputs {
     grid-area: nav;
     padding: 30px 40px;
-    border: 1px solid #5dadec24;
+    border: 1px solid #5daeec;
     border-radius: 0.25rem;
     -webkit-border-radius: 0.25rem;
     -moz-border-radius: 0.25rem;
@@ -197,7 +162,7 @@
 
 .form_wrapper > .form_wrapper_tiny {
     grid-area: main;
-    border: 1px solid #5dadec24;
+    border: 1px solid #5daeec;
     border-radius: 0.25rem;
     -webkit-border-radius: 0.25rem;
     -moz-border-radius: 0.25rem;
@@ -208,7 +173,7 @@
 .form_wrapper > .form_wrapper_foot {
     grid-area: foot;
     align-self: baseline;
-    border: 1px solid #5dadec24;
+    border: 1px solid #5daeec;
     border-radius: 0.25rem;
     -webkit-border-radius: 0.25rem;
     -moz-border-radius: 0.25rem;

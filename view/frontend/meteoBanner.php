@@ -5,6 +5,11 @@
         <span id="torontoWeath"></span>
     </div>
     <div>
+        <span>Paris</span>
+        <div id="parisIcon"></div>
+        <span id="parisWeath"></span>
+    </div>
+    <div>
         <span>Montréal</span>
         <div id="montrealIcon"></div>
         <span id="montrealWeath"></span>
@@ -18,10 +23,5 @@
         <span>Vancouver</span>
         <div id="vancouverIcon"></div>
         <span id="vancouverWeath"></span>
-    </div>
-    <div>
-        <span>Paris</span>
-        <div id="parisIcon"></div>
-        <span id="parisWeath"></span>
     </div>
 </div>

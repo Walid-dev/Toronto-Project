@@ -31,9 +31,8 @@
     <title>"Final Project"</title>
 </head>
 
-<body>
+<body id="bodyTop">
     <div id="progressBar"></div>
-
 
     <div class="header_wrapper">
         <?php require "view/frontend/headerView.php" ?>
@@ -46,8 +45,13 @@
 
 
     <?php require "view/frontend/footerView.php" ?>
-    <script src="public/js/test.js"></script>
     <script src="public/js/scroll-out.js"></script>
+    <script src="public/js/navBar.js"></script>
+    <script src="public/js/tools.js"></script>
+    <script src="public/js/test.js"></script>
+    <script src="public/js/weather.js"></script>
+    <script src="public/js/map.js"></script>
+    <script src="public/js/main.js"></script>
     <script>
         ScrollOut({
             targets: 'h2,h3,p,a,blockquote,.masthead_title,.alert'

@@ -31,11 +31,6 @@ function mapSection()
     require('view/frontend/mapSection.php');
 }
 
-function addPost()
-{
-    require('view/backend/addPostView.php');
-}
-
 function addPostTest()
 {
     require('view/backend/addPostTestView.php');

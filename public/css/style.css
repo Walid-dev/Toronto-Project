@@ -97,6 +97,14 @@ section {
 
 .modal-content {
     background: #272727;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 2px solid #5dadec;
+}
+
+.modal_form .form-group input {
+    background: #ffffff1c !important;
+    color: #fff !important;
 }
 
 .nav-link.active {

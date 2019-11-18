@@ -114,6 +114,15 @@
         border-radius: 5px;
     }
 
+    #page {
+        grid-template-areas:
+            "head head"
+            "nav  nav"
+            "main  foot";
+        grid-template-rows: 60px 1fr 1fr;
+        grid-template-columns: 1.5fr 1fr;
+    }
+
     .form_wrapper {
         display: grid;
         width: 100%;
