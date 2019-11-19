@@ -43,7 +43,6 @@
         <?= $content ?>
     </div>
 
-
     <?php require "view/frontend/footerView.php" ?>
     <script src="public/js/scroll-out.js"></script>
     <script src="public/js/navBar.js"></script>

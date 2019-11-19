@@ -9,7 +9,7 @@ class PostManager extends Manager
         $req->execute(array('id'));
         $articlesCount = $req->rowCount($db);
 
-        $perPage = 4;
+        $perPage = 8;
         $cPage = 1;
         $nbPages = ceil($articlesCount / $perPage);
 
@@ -19,7 +19,7 @@ class PostManager extends Manager
             $cPage = 1;
         }
 
-        $req = $db->prepare('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
+        $req = $db->prepare('SELECT id, title, content, author, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
         $req->execute(array('id'));
         return $req;
     }
@@ -32,7 +32,7 @@ class PostManager extends Manager
         $req->execute(array('id'));
         $articlesCount = $req->rowCount($db);
 
-        $perPage = 4;
+        $perPage = 8;
         $cPage = 1;
         $nbPages = ceil($articlesCount / $perPage);
 
@@ -49,7 +49,7 @@ class PostManager extends Manager
             if ($i == $cPage) {
                 echo "<span>$i</span>";
             } else {
-                echo " <a href=\"index.php?p=$i#sectionArticles\">$i</a>";
+                echo " <a href=\"index.php?p=$i#part3\">$i</a>";
             }
             // echo '<script type="text/javascript">window.onload = function() { document.getElementById("content").innerHTML = "' . $pagination . '"; }</script>';
         }
@@ -74,11 +74,11 @@ class PostManager extends Manager
     }
 
 
-    public function postArticle($author, $title, $content)
+    public function postArticle($author, $title, $content, $idUser, $file)
     {
         $db = Manager::dbConnect();
-        $article = $db->prepare('INSERT INTO posts(author, title, content, creation_date) VALUES(?, ?, ?, NOW())');
-        $article->execute(array($author, $title, $content));
+        $article = $db->prepare('INSERT INTO posts(author, title, content, idUser, image, creation_date) VALUES(?, ?, ?, ?, ?, NOW())');
+        $article->execute(array($author, $title, $content, $idUser, $file));
     }
 
     public function deleteFromDataBase($id)

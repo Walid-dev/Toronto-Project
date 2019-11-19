@@ -115,6 +115,7 @@
     padding: 1em;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     height: fit-content;
 }
 
@@ -136,12 +137,24 @@
     padding: 0.75rem;
     align-self: center;
     text-align: center;
+    display: flex;
+    align-items: center;
     border: 1px solid #5daeec;
     border-radius: 0.25rem;
     -webkit-border-radius: 0.25rem;
     -moz-border-radius: 0.25rem;
     -ms-border-radius: 0.25rem;
     -o-border-radius: 0.25rem;
+}
+
+.wrapper_btn {
+    width: 120px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.wrapper_title {
+    text-align: center;
+    width: calc(100% + 120px);
 }
 
 .form_wrapper_inputs input,

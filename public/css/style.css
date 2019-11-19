@@ -10,6 +10,10 @@ body {
     color: #fff;
 }
 
+.main_wrapper {
+    margin-top: 10vh;
+}
+
 section {
     padding: 70px 30px;
     min-height: 100vh;
@@ -121,4 +125,20 @@ section {
     top: 10vh;
     width: 100%;
     text-align: center;
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    width: 100%;
+}
+
+#pagination a {
+    padding: 6px 10px;
+    background: #66fcf1;
+    margin: 6px 10px;
+    border-radius: 2px;
+    text-decoration: none;
 }

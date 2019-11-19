@@ -37,6 +37,10 @@
     -o-transition: 0.15s ease-in-out;
 }
 
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
 #logo_link {
     width: 40%;
 }
