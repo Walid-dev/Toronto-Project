@@ -171,13 +171,3 @@ function addPost()
 {
     require "view/frontend/addPostView.php";
 }
-
-
-function addImage()
-{
-
-
-
-
-    require "view/backend/addImageView.php";
-}

@@ -142,3 +142,8 @@ section {
     border-radius: 2px;
     text-decoration: none;
 }
+
+#formTest {
+    display: flex;
+    flex-direction: column;
+}

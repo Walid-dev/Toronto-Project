@@ -62,7 +62,7 @@ try {
                 if (isset($_POST['save'])) {
                     $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
 
-                    postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), $_POST['content'], strip_tags($_POST['idUser']), $file);
+                    postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), $_POST['content'], strip_tags($_POST['idUser']));
                 } elseif ($_GET['action'] == 'delete') {
                     deleteArticle($_GET['id']);
                 } elseif ($_GET['action'] == 'edit') {
