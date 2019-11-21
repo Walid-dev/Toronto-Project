@@ -39,6 +39,13 @@
 
 .dropdown:hover > .dropdown-menu {
     display: block;
+    position: absolute;
+    transform: translate3d(0px, 33px, 0px);
+    top: 0px;
+    left: 0px;
+    will-change: transform;
+    background: #272727;
+    color: rgb(255, 255, 255);
 }
 
 #logo_link {

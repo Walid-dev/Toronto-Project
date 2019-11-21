@@ -73,7 +73,9 @@ function pagination()
 function postArticle($author, $title, $content, $idUser, $file)
 {
     $postManager = new PostManager();
+
     if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['idUser'])) {
+
         $postManager->postArticle($author, $title, $content, $idUser, $file);
 
         $_SESSION['message'] = "L'article a été ajouté.";

@@ -6,7 +6,11 @@
         <div>
             <h5><?= $data['title'] ?></h5>
             <hr>
-            <img class="img-fluid mb-3" src="<?= "data:image/jpeg;base64," . base64_encode($data['image']) ?>" alt="" />
+
+
+            <?= '<img class="img-fluid mb-3" src="data:image/jpeg;base64,' . $data['image'] . '" />' ?>
+
+
             <p> <?= shortArticle($data); ?></p>
             <blockquote class="blockquote mb-3 mt-2 article_author_and_date text-left">
                 <footer class="blockquote-footer">Par <?= $data['author'] ?><br><cite title="Source Title"> le <?= $data['creation_date_fr'] ?></cite></footer>
