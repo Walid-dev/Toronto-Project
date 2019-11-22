@@ -1,3 +1,7 @@
+<div class="section_h1_titles">
+    <h1>Carte</h1>
+    <hr>
+</div>
 <div id="page">
     <header>En-tête</header>
     <nav>

@@ -147,3 +147,18 @@ section {
     display: flex;
     flex-direction: column;
 }
+
+.section_h1_titles {
+    text-align: center;
+    margin: 2rem 1.25rem;
+}
+
+.section_h1_titles hr {
+    background: aqua;
+    width: 160px;
+    margin-left: calc(50% - 80px);
+}
+
+#fileField {
+    display: none;
+}

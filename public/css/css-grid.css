@@ -199,3 +199,48 @@
     width: 25%;
     margin-left: 37.5% !important;
 }
+
+/** Dashboard Menu **/
+
+.dashboard {
+}
+
+.dashboard_header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid lime;
+    min-height: 25vh;
+    justify-content: space-evenly;
+}
+
+.dashboard_pp {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.dashboard_main_content {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid aqua;
+    min-height: 60vh;
+}
+
+.dashboard_article_list {
+    border: 1px solid lime;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.35rem;
+}
+
+.dashboard_add_list {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.35rem;
+}

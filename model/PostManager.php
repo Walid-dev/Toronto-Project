@@ -19,8 +19,9 @@ class PostManager extends Manager
             $cPage = 1;
         }
 
-        $req = $db->prepare('SELECT id, title, content, author, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
-        $req->execute(array('id'));
+
+        $req = $db->prepare('SELECT id, title, content, author, idUser, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
+        $req->execute(array('idUser'));
         return $req;
     }
 
@@ -61,16 +62,17 @@ class PostManager extends Manager
     public function getPost($postId)
     {
         $db = Manager::dbConnect();
-        $req = $db->prepare('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
+        $req = $db->prepare('SELECT id, title, content, author, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
         $req->execute(array($postId));
         $post = $req->fetch();
 
         return $post;
     }
 
+
     public function addArticle()
     {
-        require('view/frontend/addPostView.php');
+        require('view/backend/addPostView.php');
     }
 
 
@@ -94,5 +96,17 @@ class PostManager extends Manager
         $db = Manager::dbConnect();
         $updateArticle = $db->prepare("UPDATE posts SET author='$author' , title='$title', content='$content' WHERE id='$id'");
         $updateArticle->execute(array($id, $author, $title, $content));
+    }
+
+    public function dashboard()
+    {
+        $db = Manager::dbConnect();
+
+        $cPage = 1;
+        $perPage = 10;
+        $idUser = $_SESSION['userId'];
+        $req = $db->prepare('SELECT id, title, content, author, idUser, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE idUser=' . $idUser . ' ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
+        $req->execute(array('idUser'));
+        return $req;
     }
 }

@@ -4,10 +4,10 @@
     <?= meteoBanner() ?>
 
 </section>
-<section class="part2">
+<section id="mapSection" class="part2">
     <?= mapSection() ?>
 </section>
-<section id="part3" class="part3">
+<section id="articlesSection" class="part3">
     <?= articleSection() ?>
 </section>
 

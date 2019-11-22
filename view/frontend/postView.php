@@ -1,11 +1,10 @@
 <?php $title = htmlspecialchars($post['title']); ?>
 
 <?php ob_start(); ?>
-<div id="postContainer" class="container" style="width: 90%;">
+<div id="postContainer" class="container">
     <h1 class="text-center pt-5"><?= $post['title'] ?></h1>
     <hr class="hr_post" class="mt-2 mb-2">
     <div class="row">
-        <a class="up btn return_btn mb-5 mt-5" href="index.php#sectionArticles">Retour à la liste des chapitres</a>
     </div>
     <div class="row article_text">
         <div class="">
@@ -15,6 +14,8 @@
             <p>
                 <?= nl2br($post['content']) ?>
             </p>
+            <?= '<img class="img-fluid mt-3 ml-2" src="data:image/jpeg;base64,' . $post['image'] . '" width="180" />' ?>
+
             <blockquote class="blockquote mb-3 mt-2 article_author_and_date text-left">
                 <footer class="blockquote-footer">Par <?= $post['author'] ?><cite title="Source Title"> le <?= $post['creation_date_fr'] ?></cite></footer>
             </blockquote>
@@ -24,7 +25,6 @@
 
     <div class="row flex-column col-md-10 pl-0 pr-0">
         <div class="row">
-            <a class="up btn return_btn mt-5" href="index.php#sectionArticles">Retour à la liste des chapitres</a>
         </div>
         <div id="commentBox" class="comments_box mt-5 mb-3 p-3">
             <h4 class="text-center">Commentaires</h4>

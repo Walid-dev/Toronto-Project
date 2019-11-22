@@ -83,4 +83,4 @@
 
 
 
-    <a id="btnLogin" href="" class="up btn btn-md btn-info" data-toggle="modal" data-backdrop="false" data-target="#modalLRForm">Connection</a>
+    <button id="btnLogin" href="" class="up btn btn-md btn-info" data-toggle="modal" data-backdrop="false" data-target="#modalLRForm">Connection</button>

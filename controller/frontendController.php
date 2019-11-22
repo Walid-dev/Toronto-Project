@@ -17,14 +17,6 @@ function home()
 }
 
 
-function listPosts()
-{
-    $postManager = new PostManager(); // Création d'un objet
-    $posts = $postManager->getPosts();
-    // Appel d'une fonction de cet objet
-
-    require('view/frontend/listPostsView.php');
-}
 
 function sliderHeader()
 {
@@ -94,8 +86,6 @@ function deleteArticle($id)
 
     $_SESSION['message'] = "L'article a été supprimé.";
     $_SESSION['msg_type'] = "danger";
-
-    header('Location: index.php#sectionArticles');
 }
 
 // Get the Article by its Id and ready to modify
@@ -132,6 +122,20 @@ function shortArticle($data)
 
 // Signup / Signin Section
 
+// Check submitted values and give access
+function login()
+{
+    $loginSystemManager = new LoginSystemManager();
+    $addUser = $loginSystemManager->login();
+}
+
+// Deconnect Users / Close Session
+function logout()
+{
+    $loginSystemManager = new LoginSystemManager();
+    $logout = $loginSystemManager->logout();
+}
+
 function displayModal()
 {
     if (isset($_SESSION['userId'])) {
@@ -151,25 +155,85 @@ function addUser()
     $_SESSION['msg_type'] = "info";
 }
 
-// Check submitted values and give access
-function login()
+
+function post()
 {
-    $loginSystemManager = new LoginSystemManager();
-    $addUser = $loginSystemManager->login();
+    $postManager = new PostManager();
+    $commentManager = new CommentManager();
+
+    $post = $postManager->getPost($_GET['id']);
+    $comments = $commentManager->getComments($_GET['id']);
+    require "view/frontend/postView.php";
 }
 
-// Deconnect Users / Close Session
-function logout()
+
+// Add Comment to a Post
+function addComment($postId, $author, $comment)
 {
-    $loginSystemManager = new LoginSystemManager();
-    $logout = $loginSystemManager->logout();
+    $commentManager = new CommentManager();
+    $affectedLines = $commentManager->postComment($postId, $author, $comment);
+
+    if ($affectedLines === false) {
+        throw new Exception('Impossible d\'ajouter le commentaire !');
+    } else {
+        header('Location: index.php?action=post&id=' . $postId);
+    }
 }
 
+
+
+// Check if user and allow to add comment or display the signup modal
+function checkUserTypeToComment($post)
+{
+    if (isset($_SESSION['usertype'])) {
+        if ($_SESSION['usertype'] == 1 || $_SESSION['usertype'] == 2) {
+            // Check if the user has an account to be allowed to add a comment
+            require("view/frontend/formCommentView.php");
+        } else {
+            echo "Se connecter ou créer un compte pour ajouter un commentaire";
+        }
+    } else {
+        require("view/frontend/signupModalView.php");
+    }
+}
+
+function signal($id, $variable, $commentStatus)
+{
+    $commentManager = new CommentManager();
+    $commentManager->signal($id, $variable, $commentStatus);
+
+    $_SESSION['message'] = "L'article a été signalé.";
+    $_SESSION['msg_type'] = "warning";
+
+    header('Location: index.php?action=post&id=' . $_GET['id'] . '#commentBox');
+}
+
+function signalComment($comment)
+{
+    if ($comment['comment_status'] == 0)
+        // Increase the variable report Onclick to signal the comment
+        {
+            echo $comment['report'] + 1;
+        } else {
+        $comment['report'];
+    }
+}
 
 
 // Articles
 
 function addPost()
 {
-    require "view/frontend/addPostView.php";
+    require "view/backend/addPostView.php";
+}
+
+
+// Tableau de bord
+
+function  dashboard()
+{
+
+    $postManager = new PostManager(); // Création d'un objet
+    $dashboardArticles = $postManager->dashboard();
+    require "view/backend/dashboardView.php";
 }

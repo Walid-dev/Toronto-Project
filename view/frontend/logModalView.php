@@ -1,8 +1,9 @@
 <li class="dropdown">
     <a class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dashboard
+        Menu
     </a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <a href="index.php?action=dashboard" class="dropdown-item" type="button">Menu</a>
         <a href="index.php?action=addPost" class="dropdown-item" type="button">Article</a>
         <a class="dropdown-item" type="button">Annonce</a>
         <a class="dropdown-item" type="button">Autre</a>

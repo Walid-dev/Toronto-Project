@@ -56,6 +56,8 @@ try {
             if ($_SESSION['usertype'] == 1 || $_SESSION['usertype'] == 2) {
                 if ($_GET['action'] == 'addPost') {
                     addPost();
+                } elseif ($_GET['action'] == 'dashboard') {
+                    dashboard();
                 } else {
                     home();
                 }
