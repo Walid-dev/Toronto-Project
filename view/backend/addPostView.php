@@ -13,6 +13,18 @@
             <div class="form-group">
                 <input class="form-control" placeholder="Titre" id="title" name="title" required oninvalid="this.setCustomValidity('Remplir le champ svp')" oninput="setCustomValidity('')" />
             </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="exampleRadios1" value="1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                    Articles
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="exampleRadios2" value="2">
+                <label class="form-check-label" for="exampleRadios2">
+                    Annonces
+                </label>
+            </div>
             <div class="form-group">
                 <input type="file" name="image" id="image">
             </div>

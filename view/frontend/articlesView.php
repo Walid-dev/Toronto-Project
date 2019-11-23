@@ -1,4 +1,4 @@
-<div class="section_h1_titles">
+<div id="articleSection1" class="section_h1_titles">
     <h1>Articles</h1>
     <hr>
 </div>
@@ -7,8 +7,9 @@
     while ($data = $posts->fetch()) {
         ?>
         <div>
+            <h2><?= $data['type'] ?></h2>
             <h5><?= $data['title'] ?></h5>
-            <hr>     
+            <hr>
             <?= '<img class="img-fluid mb-3" src="data:image/jpeg;base64,' . $data['image'] . '" />' ?>
             <p> <?= shortArticle($data); ?></p>
             <blockquote class="blockquote mb-3 mt-2 article_author_and_date text-left">
@@ -23,4 +24,4 @@ $posts->closeCursor();
 
 </div>
 
-<div id="pagination" class="text-black text-center"><?php pagination(); ?></div>
+<div id="pagination" class="text-black text-center"><?php paginationArticles(); ?></div>

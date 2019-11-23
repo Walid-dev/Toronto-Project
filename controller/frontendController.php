@@ -13,6 +13,7 @@ require_once('model/loginSystemManager.php');
 
 function home()
 {
+    $_SESSION['type'] = 1;
     require('view/frontend/homeView.php');
 }
 
@@ -50,25 +51,42 @@ function displayAlertMessage()
 function articleSection()
 {
     $postManager = new PostManager(); // Création d'un objet
-    $posts = $postManager->getPosts();
-
+    $posts = $postManager->getPosts(1);
 
     require "view/frontend/articlesView.php";
 }
 
-function pagination()
+function paginationArticles()
 {
     $postManager = new PostManager();
-    $postManager->pagination();
+    $postManager->pagination(1);
 }
 
-function postArticle($author, $title, $content, $idUser, $file)
+
+function addsSection()
+{
+    $postManager = new PostManager(); // Création d'un objet
+    $posts = $postManager->getPosts(2);
+
+    require "view/frontend/addView.php";
+}
+
+
+function paginationAdds()
+{
+    $postManager = new PostManager();
+    $postManager->pagination(2);
+}
+
+
+
+function postArticle($author, $title, $content, $idUser, $file, $type)
 {
     $postManager = new PostManager();
 
     if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['idUser'])) {
 
-        $postManager->postArticle($author, $title, $content, $idUser, $file);
+        $postManager->postArticle($author, $title, $content, $idUser, $file, $type);
 
         $_SESSION['message'] = "L'article a été ajouté.";
         $_SESSION['msg_type'] = "success";
@@ -236,4 +254,9 @@ function  dashboard()
     $postManager = new PostManager(); // Création d'un objet
     $dashboardArticles = $postManager->dashboard();
     require "view/backend/dashboardView.php";
+}
+
+function test($data)
+{
+    require "view/frontend/testView.php";
 }

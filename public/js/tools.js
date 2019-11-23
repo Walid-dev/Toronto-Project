@@ -41,3 +41,7 @@ $("#save").click(function() {
         }
     }
 });
+
+function myFunction() {
+    alert("hello");
+}

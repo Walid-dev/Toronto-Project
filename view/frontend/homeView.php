@@ -10,6 +10,11 @@
 <section id="articlesSection" class="part3">
     <?= articleSection() ?>
 </section>
+<section id="addsSection" class="part3">
+    <?= addsSection() ?>
+</section>
+
+
 
 <section id="part4" class="part4">
 

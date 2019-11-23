@@ -1,12 +1,16 @@
 <?php
 class PostManager extends Manager
 {
-    public function getPosts()
+    public function getPosts($test)
     {
         $db = Manager::dbConnect();
 
-        $req = $db->prepare('SELECT id FROM posts');
-        $req->execute(array('id'));
+
+
+
+
+        $req = $db->prepare('SELECT id, type FROM posts WHERE type=' . $test . '');
+        $req->execute(array($test));
         $articlesCount = $req->rowCount($db);
 
         $perPage = 8;
@@ -20,17 +24,20 @@ class PostManager extends Manager
         }
 
 
-        $req = $db->prepare('SELECT id, title, content, author, idUser, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
+
+        $req = $db->prepare('SELECT id, title, content, author, idUser, image, type, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE type=' . $test . ' ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
         $req->execute(array('idUser'));
         return $req;
     }
 
-    public function pagination()
+    public function pagination($test)
     {
         $db = Manager::dbConnect();
 
-        $req = $db->prepare('SELECT id FROM posts');
-        $req->execute(array('id'));
+
+
+        $req = $db->prepare('SELECT id, type FROM posts WHERE type=' . $test . ' ');
+        $req->execute(array($test));
         $articlesCount = $req->rowCount($db);
 
         $perPage = 8;
@@ -50,7 +57,7 @@ class PostManager extends Manager
             if ($i == $cPage) {
                 echo "<span>$i</span>";
             } else {
-                echo " <a href=\"index.php?p=$i#part3\">$i</a>";
+                echo " <a href=\"index.php?p=$i#articleSection$test\">$i</a>";
             }
             // echo '<script type="text/javascript">window.onload = function() { document.getElementById("content").innerHTML = "' . $pagination . '"; }</script>';
         }
@@ -62,7 +69,7 @@ class PostManager extends Manager
     public function getPost($postId)
     {
         $db = Manager::dbConnect();
-        $req = $db->prepare('SELECT id, title, content, author, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
+        $req = $db->prepare('SELECT id, title, content, author, image, type, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
         $req->execute(array($postId));
         $post = $req->fetch();
 
@@ -76,11 +83,11 @@ class PostManager extends Manager
     }
 
 
-    public function postArticle($author, $title, $content, $idUser, $file)
+    public function postArticle($author, $title, $content, $idUser, $file, $type)
     {
         $db = Manager::dbConnect();
-        $article = $db->prepare('INSERT INTO posts(author, title, content, idUser, image, creation_date) VALUES(?, ?, ?, ?, ?, NOW())');
-        $article->execute(array($author, $title, $content, $idUser, $file));
+        $article = $db->prepare('INSERT INTO posts(author, title, content, idUser, image, type, creation_date) VALUES(?, ?, ?, ?, ?, ?, NOW())');
+        $article->execute(array($author, $title, $content, $idUser, $file, $type));
     }
 
     public function deleteFromDataBase($id)
