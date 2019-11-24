@@ -1,5 +1,5 @@
 <div id="articleSection1" class="section_h1_titles">
-    <h1>Articles</h1>
+    <h1>Articles</h1><a class="btn btn-md btn-info" type="submit" href="index.php?action=annonces">Annonce</a>
     <hr>
 </div>
 <div class="article_wrapper">
@@ -8,6 +8,8 @@
         ?>
         <div>
             <h2><?= $data['type'] ?></h2>
+            <h3><?= $data['idUser'] ?></h3>
+
             <h5><?= $data['title'] ?></h5>
             <hr>
             <?= '<img class="img-fluid mb-3" src="data:image/jpeg;base64,' . $data['image'] . '" />' ?>
@@ -24,4 +26,4 @@ $posts->closeCursor();
 
 </div>
 
-<div id="pagination" class="text-black text-center"><?php paginationArticles(); ?></div>
+<div id="pagination" class="text-black text-center"><?= paginationArticles() ?></div>

@@ -3,9 +3,9 @@
         Menu
     </a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <a href="index.php?action=dashboard" class="dropdown-item" type="button">Menu</a>
-        <a href="index.php?action=addPost" class="dropdown-item" type="button">Article</a>
-        <a class="dropdown-item" type="button">Annonce</a>
+        <a href="index.php?action=dashboard" class="dropdown-item" type="button">Tableau de bord</a>
+        <a href="index.php?action=addPost" class="dropdown-item" type="button">Mes Articles/Annonces</a>
+        <a class="dropdown-item" type="button">Messages</a>
         <a class="dropdown-item" type="button">Autre</a>
         <a class="dropdown-item">
             <form class="form" action="index.php" method="post">

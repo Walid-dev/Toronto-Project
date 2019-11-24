@@ -8,7 +8,7 @@
         <div class="form_wrapper_inputs">
             <input type="hidden" name="idUser" value="<?= $_SESSION['userId'] ?>" />
             <div class="form-group">
-                <input class="form-control" placeholder="Auteur" type="text" id="author" name="author" required oninvalid="this.setCustomValidity('Remplir le champ svp.')" oninput="setCustomValidity('')" />
+                <input class="form-control" type="hidden" id="author" name="author" value="<?= $_SESSION['userUid'] ?>">
             </div>
             <div class="form-group">
                 <input class="form-control" placeholder="Titre" id="title" name="title" required oninvalid="this.setCustomValidity('Remplir le champ svp')" oninput="setCustomValidity('')" />
