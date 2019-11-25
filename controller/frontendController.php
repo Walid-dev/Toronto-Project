@@ -6,6 +6,8 @@ require_once('model/Manager.php');
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/loginSystemManager.php');
+require_once('model/MessageManager.php');
+
 
 // Login Logout Register Section
 
@@ -233,7 +235,7 @@ function signalComment($comment)
         {
             echo $comment['report'] + 1;
         } else {
-        $comment['report'];
+        echo $comment['report'] + 1;
     }
 }
 
@@ -259,4 +261,16 @@ function  dashboard()
 function test($data)
 {
     require "view/frontend/testView.php";
+}
+
+function sendMessage($postId, $senderId, $recipient, $subject, $content)
+{
+    $messageManager = new MessageManager();
+    $message = $messageManager->sendMessage($postId, $senderId, $recipient, $subject, $content);
+
+
+    $_SESSION['message'] = "Le message à été envoyé";
+    $_SESSION['msg_type'] = "info";
+
+    //  header('Location: index.php?action=post&id=' . $postId);
 }

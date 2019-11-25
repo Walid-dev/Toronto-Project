@@ -1,7 +1,6 @@
 <section id="articleSection2" class="part3">
     <div class="section_h1_titles">
-        <h1>Annonces</h1>
-        <hr>
+        <img class="img-fluid text-center" src="public/images/ANNONCES.png" width="180" alt="">
     </div>
     <div class="article_wrapper">
         <?php

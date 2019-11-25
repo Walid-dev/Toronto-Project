@@ -162,3 +162,11 @@ section {
 #fileField {
     display: none;
 }
+
+.signal_form {
+    border: 1px solid #00ffff36;
+    border-radius: 10px;
+    padding: 20px 30px;
+}
+
+/** Post View Css **/

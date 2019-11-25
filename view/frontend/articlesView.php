@@ -1,15 +1,11 @@
 <div id="articleSection1" class="section_h1_titles">
-    <h1>Articles</h1><a class="btn btn-md btn-info" type="submit" href="index.php?action=annonces">Annonce</a>
-    <hr>
+    <img class="img-fluid text-center" src="public/images/ARTICLES.png" width="180" alt="">
 </div>
 <div class="article_wrapper">
     <?php
     while ($data = $posts->fetch()) {
         ?>
         <div>
-            <h2><?= $data['type'] ?></h2>
-            <h3><?= $data['idUser'] ?></h3>
-
             <h5><?= $data['title'] ?></h5>
             <hr>
             <?= '<img class="img-fluid mb-3" src="data:image/jpeg;base64,' . $data['image'] . '" />' ?>

@@ -1,11 +1,50 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Répondre à <?= $post['author'] ?></button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Message à <?= $post['author'] ?></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="index.php?action=sendMsg" method="post">
+                    <div class="form-group">
+                        <input name="recipient" value="<?= $post['author'] ?>" type="hidden" class="form-control" id="">
+                    </div>
+                    <div class="form-group">
+                        <input name="senderId" value="<?= $_SESSION['userId'] ?>" type="hidden" class="form-control" id="">
+                    </div>
+                    <div class="form-group">
+                        <input name="postId" value="<?= $post['id'] ?>" type="hidden" class="form-control" id="">
+                    </div>
+                    <div class="form-group">
+                        <input name="subject" type="text" class="form-control" placeholder="Sujet" id="">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="content" id="message-text" placeholder="Message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" name="sendMsg">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <form id="commentForm" action="index.php?action=addComment&amp;id=<?= $post['id'] . "#commentForm" ?>" method="post">
     <div class="form-group">
-        <label for="author">Auteur</label><br />
-        <input class="form-control" type="text" id="author" name="author" required oninvalid="this.setCustomValidity('Remplir le champs svp')" oninput="setCustomValidity('')" />
+        <input class="form-control" type="hidden" id="author" name="author" value="<?= $_SESSION['userUid'] ?>" />
     </div>
     <div class="form-group">
-        <label for="comment">Commentaire</label><br />
-        <textarea class="form-control" id="comment" name="comment" required oninvalid="this.setCustomValidity('Ajouter un commentaire.')" oninput="setCustomValidity('')"></textarea>
+        <textarea class="form-control" placeholder="Laisser un commentaire.." id="comment" name="comment" required oninvalid="this.setCustomValidity('Ajouter un commentaire.')" oninput="setCustomValidity('')"></textarea>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Enregistrer</button>

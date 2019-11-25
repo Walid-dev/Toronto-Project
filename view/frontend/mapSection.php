@@ -1,6 +1,5 @@
 <div class="section_h1_titles">
-    <h1>Carte</h1>
-    <hr>
+    <img class="img-fluid text-center" src="public/images/CARTE.png" width="140" alt="">
 </div>
 <div id="page">
     <header>En-tête</header>

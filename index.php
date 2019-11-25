@@ -58,6 +58,12 @@ try {
                     addPost();
                 } elseif ($_GET['action'] == 'dashboard') {
                     dashboard();
+                } elseif ($_GET['action'] == 'sendMsg') {
+                    if (!empty($_POST['postId']) && !empty($_POST['senderId']) && !empty($_POST['senderId']) && !empty($_POST['subject']) && !empty($_POST['content'])) {
+                        sendMessage(strip_tags($_POST['postId']), strip_tags($_POST['senderId']), strip_tags($_POST['recipient']), strip_tags($_POST['subject']), strip_tags($_POST['content']));
+                    } else {
+                        throw new Exception('Tous les champs ne sont pas remplis.');
+                    }
                 } else {
                     home();
                 }
@@ -65,7 +71,7 @@ try {
                     $file = addslashes($_FILES["image"]["tmp_name"]);
                     $file = file_get_contents($file);
                     $file = base64_encode($file);
-                    postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), $_POST['content'], strip_tags($_POST['idUser']), $file, $_POST['type']);
+                    postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), $_POST['content'], strip_tags($_POST['idUser']), strip_tags($file), strip_tags($_POST['type']));
                 } elseif ($_GET['action'] == 'delete') {
                     deleteArticle($_GET['id']);
                 } elseif ($_GET['action'] == 'edit') {

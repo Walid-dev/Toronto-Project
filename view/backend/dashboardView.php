@@ -20,7 +20,8 @@
                         <div class="dashboard_article_title"><?= $dashboardArticle['title'] ?></div>
                         <?= '<img class="img-fluid mt-3 ml-2" src="data:image/jpeg;base64,' . $dashboardArticle['image'] . '" width="60" />' ?>
                         <a class="btn btn-warning mt-3 ml-2" href="index.php?action=post&amp;id=<?= $dashboardArticle['id'] . "#postContainer" ?>">Lire</a>
-                        <a href="" class="btn admin_btn mt-2" data-toggle="modal" data-target="#exampleModalCenter<?= $dashboardArticle['id'] ?>">
+                        <a href="index.php?action=edit&amp;id=<?= $dashboardArticle['id'] . "#editPostContainer" ?>" class="btn btn-info mt-3 ml-2">Editer</a>
+                        <a href="" class="btn btn-danger mt-3 ml-2" data-toggle="modal" data-target="#exampleModalCenter<?= $dashboardArticle['id'] ?>">
                             Supprimer article
                         </a>
                         <br>
