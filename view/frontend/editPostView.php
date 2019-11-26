@@ -1,29 +1,51 @@
 <?php ob_start(); ?>
-<div id="editPostContainer" class="container">
-    <h1 class="text-center pt-5"><?= "Modifier " . '"' . $post['title'] . '"' ?></h1>
-    <hr class="mt-2 mb-2">
-    <p><a class="up btn return_btn" href="index.php#sectionArticles">Retour à la liste des billets</a></p>
-    <form action="index.php?action=updateArticle&amp;id=<?= $post['id'] ?>" method="post">
-        <div class="form-group">
-            <label for="author">Auteur</label><br>
-            <input type="text" class="form-control" id="author" name="author" value="<?= $post['author'] ?>" />
-        </div>
 
-        <div class="form-group">
-            <label for="title">Titre</label>
-            <input id="title" class="form-control" name="title" value="<?= $post['title'] ?>" />
+<section id="editPostSection">
+    <form action="index.php?action=updateArticle&amp;id=<?= $post['id'] ?>" method="post" enctype="multipart/form-data" class="form_wrapper">
+        <div class="form_wrapper_title">
+            <a href="index.php" class="wrapper_btn btn btn-sm btn-info">Retour</a>
+            <div class="wrapper_title">Ajouter article</div>
         </div>
-
-        <div class="form-group">
-            <label for="title">Texte</label><br>
+        <div class="form_wrapper_inputs">
+            <input type="text" name="idUser" value="<?= $_SESSION['userId'] ?>" />
+            <div class="form-group">
+                <input class="form-control" type="hidden" id="author" name="author" value="<?= $post['author'] ?>">
+            </div>
+            <div class="form-group">
+                <input class="form-control" placeholder="Titre" id="title" name="title" value="<?= $post['title'] ?>" required oninvalid="this.setCustomValidity('Remplir le champ svp')" oninput="setCustomValidity('')" />
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="exampleRadios1" value="1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                    Articles
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="exampleRadios2" value="2">
+                <label class="form-check-label" for="exampleRadios2">
+                    Annonces
+                </label>
+            </div>
+            <div class="form-group">
+                <?php if ($post['image'] != NULL) {
+                    echo '<img class="img-fluid mt-3 ml-2" src="data:image/jpeg;base64,' . $post['image'] . '" width="180" />';
+                } else {
+                    echo '<img class="img-fluid mt-3 ml-2" src="public/images/toronto_logo.png" width="180" />';
+                }
+                ?>
+                <div class="form-group">
+                    <input class="mt-3" type="file" name="image" id="image">
+                </div>
+            </div>
+        </div>
+        <div class="form_wrapper_tiny form-group">
             <textarea id="myTextArea" name="content"><?= $post['content'] ?></textarea>
         </div>
-
-        <div id="buttonBox" class="d-flex mt-4">
+        <div id="buttonBox" class="form_wrapper_foot">
             <button class="btn btn-info mb-5" type="submit" name="update">Sauvegarder</button>
         </div>
     </form>
-</div>
+</section>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

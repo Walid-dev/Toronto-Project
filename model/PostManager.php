@@ -98,11 +98,11 @@ class PostManager extends Manager
         //  $db->query("DELETE FROM comments WHERE post_id=$id");
     }
 
-    public function updatePost($id, $author, $title, $content)
+    public function updatePost($id, $author, $title, $content, $idUser, $file, $type)
     {
         $db = Manager::dbConnect();
-        $updateArticle = $db->prepare("UPDATE posts SET author='$author' , title='$title', content='$content' WHERE id='$id'");
-        $updateArticle->execute(array($id, $author, $title, $content));
+        $updateArticle = $db->prepare("UPDATE posts SET author='$author' , title='$title', content='$content', idUser='$idUser', image='$file', type='$type' WHERE id='$id'");
+        $updateArticle->execute(array($id, $author, $title, $content, $idUser, $file, $type));
     }
 
     public function dashboard()

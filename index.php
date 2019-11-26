@@ -64,9 +64,7 @@ try {
                     } else {
                         throw new Exception('Tous les champs ne sont pas remplis.');
                     }
-                } else {
-                    home();
-                }
+                } else { }
                 if (isset($_POST['save'])) {
                     $file = addslashes($_FILES["image"]["tmp_name"]);
                     $file = file_get_contents($file);
@@ -74,6 +72,8 @@ try {
                     postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), $_POST['content'], strip_tags($_POST['idUser']), strip_tags($file), strip_tags($_POST['type']));
                 } elseif ($_GET['action'] == 'delete') {
                     deleteArticle($_GET['id']);
+                } elseif ($_GET['action'] == 'getMessage') {
+                    getMessage();
                 } elseif ($_GET['action'] == 'edit') {
                     if (isset($_GET['id']) && $_GET['id'] > 0) {
                         editArticle();
@@ -81,7 +81,10 @@ try {
                         throw new Exception('Aucun identifiant de billet envoyé');
                     }
                 } elseif (isset($_POST['update'])) {
-                    updateArticle($_GET['id'], $_POST['author'], $_POST['title'], $_POST['content']);
+                    $file = addslashes($_FILES["image"]["tmp_name"]);
+                    $file = file_get_contents($file);
+                    $file = base64_encode($file);
+                    updateArticle($_GET['id'], $_POST['author'], $_POST['title'], $_POST['content'], $_POST['idUser'], $file, $_POST['type']);
                 } elseif ($_GET['action'] == 'listComments') {
                     listComments();
                 } elseif ($_GET['action'] == 'deleteComment') {

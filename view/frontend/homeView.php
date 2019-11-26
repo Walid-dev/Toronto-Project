@@ -14,8 +14,6 @@
     <?= addsSection() ?>
 </section>
 
-
-
 <section id="part4" class="part4">
 
 </section>

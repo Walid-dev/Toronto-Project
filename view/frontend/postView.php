@@ -7,6 +7,7 @@
     </div>
     <div class="row article_text">
         <div class="">
+            <h1><?= $post['author'] ?></h1>
             <h3>
                 <?= htmlspecialchars($post['title']) ?>
             </h3>
@@ -25,7 +26,8 @@
         </div>
     </div>
 
-    <?= checkUserTypeToComment($post); ?>
+
+    <?= checkUserTypeToComment($post, "Se connecter pour commenter ou envoyer un message"); ?>
 
 
 

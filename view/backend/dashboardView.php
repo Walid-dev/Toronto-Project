@@ -5,13 +5,9 @@
             <h3>Tableau de bord</h3>
             <img class="dashboard_pp" src="public/images/img4.jpg" width="100" height="100" alt="">
         </div>
-        <div class="dashboard_main_content">
+        <div id="dashboardArticles" class="dashboard_main_content">
             <div class="dashboard_article_list">
                 <h5 class="text-center m-4">Mes Articles</h5>
-
-
-
-
                 <?php
                 while ($dashboardArticle = $dashboardArticles->fetch()) {
                     ?>
@@ -26,10 +22,6 @@
                         </a>
                         <br>
                         <span class="dashboard_article_date mt-2">Le <?= $dashboardArticle['creation_date_fr'] ?></span>
-
-
-
-
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModalCenter<?= $dashboardArticle['id'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">

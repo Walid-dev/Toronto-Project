@@ -106,6 +106,10 @@ function deleteArticle($id)
 
     $_SESSION['message'] = "L'article a été supprimé.";
     $_SESSION['msg_type'] = "danger";
+
+
+
+    header('Location: index.php?action=dashboard#dashboardArticles');
 }
 
 // Get the Article by its Id and ready to modify
@@ -114,19 +118,19 @@ function editArticle()
     $postManager = new PostManager();
     $post = $postManager->getPost($_GET['id']);
 
-    require('view/frontend/editPostView.php');
+    require('view/backend/editPostView.php');
 }
 
 // Update the modified article
-function updateArticle($id, $author, $title, $content)
+function updateArticle($id, $author, $title, $content, $idUser, $file, $type)
 {
     $postManager = new PostManager();
-    $postManager->updatePost($id, $author, $title, $content);
+    $postManager->updatePost($id, $author, $title, $content, $idUser, $file, $type);
 
     $_SESSION['message'] = "L'article a été mis à jour.";
     $_SESSION['msg_type'] = "info";
 
-    header('Location: index.php#sectionArticles');
+    header('Location: index.php?action=dashboard#dashboardArticles');
 }
 
 function shortArticle($data)
@@ -156,7 +160,7 @@ function logout()
     $logout = $loginSystemManager->logout();
 }
 
-function displayModal()
+function displayModal($text)
 {
     if (isset($_SESSION['userId'])) {
         require "view/frontend/logModalView.php";
@@ -203,7 +207,7 @@ function addComment($postId, $author, $comment)
 
 
 // Check if user and allow to add comment or display the signup modal
-function checkUserTypeToComment($post)
+function checkUserTypeToComment($post, $text)
 {
     if (isset($_SESSION['usertype'])) {
         if ($_SESSION['usertype'] == 1 || $_SESSION['usertype'] == 2) {
@@ -272,5 +276,13 @@ function sendMessage($postId, $senderId, $recipient, $subject, $content)
     $_SESSION['message'] = "Le message à été envoyé";
     $_SESSION['msg_type'] = "info";
 
+    header('Location: index.php?action=post&id=' . $postId);
+
+
     //  header('Location: index.php?action=post&id=' . $postId);
+}
+
+function getMessage()
+{
+    require "view/backend/messageView.php";
 }
