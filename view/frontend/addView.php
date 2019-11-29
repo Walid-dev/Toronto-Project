@@ -1,6 +1,6 @@
-<section id="articleSection2" class="part3">
+<div id="" class="container-fluid">
     <div class="section_h1_titles">
-        <img class="img-fluid text-center" src="public/images/ANNONCES.png" width="180" alt="">
+        <img class="img-fluid text-center" src="public/images/annonces.png" width="180" alt="">
     </div>
     <div class="article_wrapper">
         <?php
@@ -25,4 +25,4 @@
     </div>
 
     <div id="pagination" class="text-black text-center"><?= paginationAdds(); ?></div>
-</section>
+</div>

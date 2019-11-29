@@ -1,8 +1,6 @@
 <?php ob_start(); ?>
 <section id="part1" class="part1">
-    <?= sliderHeader() ?>
     <?= meteoBanner() ?>
-
 </section>
 <section id="mapSection" class="part2">
     <?= mapSection() ?>
@@ -10,7 +8,7 @@
 <section id="articlesSection" class="part3">
     <?= articleSection() ?>
 </section>
-<section id="addsSection" class="part3">
+<section id="addSection" class="part3">
     <?= addsSection() ?>
 </section>
 

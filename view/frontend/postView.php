@@ -7,7 +7,7 @@
     </div>
     <div class="row article_text">
         <div class="">
-            <h1><?= $post['author'] ?></h1>
+            <h2 class=""><?= $post['author'] ?></h1>
             <h3>
                 <?= htmlspecialchars($post['title']) ?>
             </h3>

@@ -63,6 +63,8 @@ class LoginSystemManager extends Manager
             exit();
         } else {
 
+            sleep(1);
+
             $stmt = $db->prepare("SELECT * FROM users WHERE emailUsers=?");
             $stmt->execute([$mailuid]);
             $user = $stmt->fetch();

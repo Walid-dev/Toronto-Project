@@ -112,7 +112,7 @@ class PostManager extends Manager
         $cPage = 1;
         $perPage = 10;
         $idUser = $_SESSION['userId'];
-        $req = $db->prepare('SELECT id, title, content, author, idUser, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE idUser=' . $idUser . ' ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
+        $req = $db->prepare('SELECT id, title, content, author, idUser, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts WHERE idUser=' . $idUser . ' ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
         $req->execute(array('idUser'));
         return $req;
     }

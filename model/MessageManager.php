@@ -12,5 +12,9 @@ class MessageManager extends Manager
     public function getMessage()
     {
         $db = Manager::dbConnect();
+        $recipient = $_SESSION['userUid'];
+        $messages = $db->prepare('SELECT id, postId, recipient, senderId, content, subject, DATE_FORMAT(date, \'%d/%m/%Y à %Hh%imin\') AS date FROM message WHERE recipient="' . $recipient . '" ORDER BY date DESC');
+        $messages->execute(array(' id'));
+        return $messages;
     }
 }

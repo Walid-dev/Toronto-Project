@@ -32,7 +32,7 @@ try {
     } elseif (isset($_POST['logout-submit'])) {
         logout();
     } elseif (isset($_POST['signal'])) {
-        signal($_POST['commentId'], $_POST['report'], $_POST['commentStatus']);
+        signal(strip_tags($_POST['commentId']), strip_tags($_POST['report']), strip_tags($_POST['commentStatus']));
     } elseif (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
             listPosts();
@@ -45,7 +45,7 @@ try {
         } elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                    addComment($_GET['id'], strip_tags($_POST['author']), strip_tags($_POST['comment']));
                 } else {
                     throw new Exception('Tous les champs ne sont pas remplis.');
                 }
@@ -84,7 +84,7 @@ try {
                     $file = addslashes($_FILES["image"]["tmp_name"]);
                     $file = file_get_contents($file);
                     $file = base64_encode($file);
-                    updateArticle($_GET['id'], $_POST['author'], $_POST['title'], $_POST['content'], $_POST['idUser'], $file, $_POST['type']);
+                    updateArticle($_GET['id'], strip_tags($_POST['author']), strip_tags($_POST['title']), strip_tags($_POST['content']), strip_tags($_POST['idUser']), $file, strip_tags($_POST['type']));
                 } elseif ($_GET['action'] == 'listComments') {
                     listComments();
                 } elseif ($_GET['action'] == 'deleteComment') {

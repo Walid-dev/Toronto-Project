@@ -1,7 +1,7 @@
 /** Header Nav CSS **/
 
 #navHeader {
-    height: 10vh;
+    height: 8vh;
     background: rgb(20, 20, 20);
     position: fixed;
     top: 0;
@@ -20,15 +20,19 @@
     height: 100%;
 }
 
-.nav-links a {
-    color: #fff;
+.nav-links a,
+.nav-links button {
+    color: #e5e5e5;
+    font-size: 0.85rem;
     text-decoration: none;
     font-weight: lighter;
 }
 
-.nav_section_link:hover {
-    padding-bottom: 6px;
-    border-bottom: solid #fc00fc;
+.nav_link_box {
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 50px;
     transition: 0.15s ease-in-out;
     -webkit-transition: 0.15s ease-in-out;
     -moz-transition: 0.15s ease-in-out;
@@ -36,15 +40,31 @@
     -o-transition: 0.15s ease-in-out;
 }
 
+.nav_link_box:hover {
+    background: #1f1f1f;
+}
+
 .dropdown:hover > .dropdown-menu {
     display: block;
-    position: absolute;
-    transform: translate3d(0px, 33px, 0px);
-    top: 0px;
-    left: 0px;
-    will-change: transform;
-    background: #272727;
-    color: rgb(255, 255, 255);
+}
+
+.dropdown-menu {
+    background: rgb(20, 20, 20);
+    color: #e5e5e5;
+}
+
+.dropdown-item:hover {
+    background: #1f1f1f;
+    color: #e5e5e5;
+    border-radius: 50px;
+}
+
+.logout-btn {
+    color: #e5e5e5;
+}
+
+.logout-btn:hover {
+    border: 1px solid #e5e5e523;
 }
 
 #logo_link {
@@ -58,7 +78,6 @@
 /** Header Bg Fading On Scroll **/
 
 #headerSection {
-    margin-top: 10vh;
 }
 
 #headerBgWrapper {

@@ -1,5 +1,5 @@
 <div class="section_h1_titles">
-    <img class="img-fluid text-center" src="public/images/CARTE.png" width="140" alt="">
+    <img class="img-fluid text-center" src="public/images/carte.png" width="140" alt="">
 </div>
 <div id="page">
     <header>En-tête</header>

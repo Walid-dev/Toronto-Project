@@ -278,11 +278,16 @@ function sendMessage($postId, $senderId, $recipient, $subject, $content)
 
     header('Location: index.php?action=post&id=' . $postId);
 
+    exit;
+
 
     //  header('Location: index.php?action=post&id=' . $postId);
 }
 
 function getMessage()
 {
+    $messageManager = new MessageManager();
+    $messages = $messageManager->getMessage();
+
     require "view/backend/messageView.php";
 }

@@ -1,5 +1,5 @@
 <div id="articleSection1" class="section_h1_titles">
-    <img class="img-fluid text-center" src="public/images/ARTICLES.png" width="180" alt="">
+    <img class="img-fluid text-center" src="public/images/articles.png" width="180" alt="">
 </div>
 <div class="article_wrapper">
     <?php
