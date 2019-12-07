@@ -1,4 +1,4 @@
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 900px) {
     .line {
         width: 30px;
         height: 3px;
@@ -42,8 +42,12 @@
     }
 
     .nav-links.open {
-        clip-path: circle(1100px at 90% -10%);
+        clip-path: circle(1100px at 80% -10%);
         -webkit-clip-path: circle(1100px at 90% -10%);
+        pointer-events: none;
+    }
+
+    .nav_section_link {
         pointer-events: all;
     }
 

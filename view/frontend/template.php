@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
     <script src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
     <link rel="stylesheet" href="public/css/header.css">
+    <link rel="stylesheet" href="public/css/scrollOut.css">
     <link rel="stylesheet" href="public/css/footer.css">
     <link rel="stylesheet" href="public/css/css-grid.css">
     <link rel="stylesheet" href="public/css/media-queries.css">
@@ -32,14 +33,16 @@
 </head>
 
 <body id="bodyTop">
-    <div id="progressBar"></div>
 
     <div class="header_wrapper">
         <?php require "view/frontend/headerView.php" ?>
     </div>
 
+    <div id="progressBar"></div>
+
     <div class="main_wrapper">
         <?= displayAlertMessage() ?>
+
         <?= $content ?>
     </div>
 
@@ -47,13 +50,12 @@
     <script src="public/js/scroll-out.js"></script>
     <script src="public/js/navBar.js"></script>
     <script src="public/js/tools.js"></script>
-    <script src="public/js/test.js"></script>
     <script src="public/js/weather.js"></script>
     <script src="public/js/map.js"></script>
     <script src="public/js/main.js"></script>
     <script>
         ScrollOut({
-            targets: 'h2,h3,p,a,blockquote,.masthead_title,.alert'
+            targets: '.weather_box, .article_wrapper > div, .hr_title, .pagination'
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>

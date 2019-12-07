@@ -2,13 +2,19 @@
 
 #navHeader {
     height: 8vh;
-    background: rgb(20, 20, 20);
+    background: linear-gradient(rgb(34, 34, 34) 1%, rgb(4, 4, 4) 100%);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
     z-index: 2;
+    cursor: pointer;
+    transition: 0.35s ease-in-out;
+    -webkit-transition: 0.35s ease-in-out;
+    -moz-transition: 0.35s ease-in-out;
+    -ms-transition: 0.35s ease-in-out;
+    -o-transition: 0.35s ease-in-out;
 }
 
 .nav-links {
@@ -22,100 +28,131 @@
 
 .nav-links a,
 .nav-links button {
+    font-family: "Quicksand", sans-serif;
     color: #e5e5e5;
-    font-size: 0.85rem;
+    font-size: 0.87rem;
     text-decoration: none;
     font-weight: lighter;
 }
 
 .nav_link_box {
+    padding: 4px 10px;
+    transition: 0.15s linear;
+    -webkit-transition: 0.15s linear;
+    -moz-transition: 0.15s linear;
+    -ms-transition: 0.15s linear;
+    -o-transition: 0.15s linear;
+}
+
+.nav_section_link {
     display: flex;
     align-items: center;
-    padding: 8px 14px;
-    border-radius: 50px;
-    transition: 0.15s ease-in-out;
-    -webkit-transition: 0.15s ease-in-out;
-    -moz-transition: 0.15s ease-in-out;
-    -ms-transition: 0.15s ease-in-out;
-    -o-transition: 0.15s ease-in-out;
 }
 
-.nav_link_box:hover {
-    background: #1f1f1f;
+/** .nav_link_box:hover {
+    background: #242424;
+} **/
+
+.nav_section_link img,
+#menuLink img,
+#dropdownMenu2 img,
+.dropdown-item img {
+    width: 28px !important;
+    padding: 4px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
-.dropdown:hover > .dropdown-menu {
-    display: block;
+#dropdownMenu2 {
+    display: flex;
+    align-items: center;
+    transition: 0.25s linear;
+    -webkit-transition: 0.25s linear;
+    -moz-transition: 0.25s linear;
+    -ms-transition: 0.25s linear;
+    -o-transition: 0.25s linear;
 }
 
 .dropdown-menu {
-    background: rgb(20, 20, 20);
+    background-image: linear-gradient(rgb(34, 34, 34) 1%, rgb(4, 4, 4) 100%);
     color: #e5e5e5;
+    width: 200px;
 }
 
-.dropdown-item:hover {
-    background: #1f1f1f;
+.dropdown-item,
+#menuLink {
+    padding: 8px 14px;
+    background: transparent;
+    border: none;
+}
+
+.dropdown-menu li a {
+    font-size: 0.85rem;
+}
+
+.dropdown-item:hover,
+.dropdown-menu li:hover {
+    background-image: linear-gradient(to left, #0d0d0d 50%, #1c1b1b 100%);
+
     color: #e5e5e5;
-    border-radius: 50px;
+    transition: 0.25s linear;
+    -webkit-transition: 0.25s linear;
+    -moz-transition: 0.25s linear;
+    -ms-transition: 0.25s linear;
+    -o-transition: 0.25s linear;
 }
 
 .logout-btn {
     color: #e5e5e5;
 }
 
-.logout-btn:hover {
-    border: 1px solid #e5e5e523;
-}
-
-#logo_link {
-    width: 25%;
+#logo {
+    padding: 6px 12px;
 }
 
 .part1 {
     padding: 0;
 }
 
-/** Header Bg Fading On Scroll **/
+/** Header Banner **/
 
-#headerSection {
-}
-
-#headerBgWrapper {
-    background: rgb(20, 20, 20);
-}
-
-.header_bg_section {
-    padding: 90px 40px;
-}
-
-.header {
-    position: relative;
+.banner {
+    position: absolute;
+    padding: 8vh 0;
     width: 100%;
-    height: 75vh;
+    height: 100vh;
+    top: 0;
     overflow: hidden;
-    background: rgb(20, 20, 20);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.header #bg {
+.banner video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(22, 22, 22, 0) 0, rgba(22, 22, 22, 0) 75%, rgba(31, 51, 63, 0) 100%),
-        url(../images/torontoView.jpg);
-    background-position-x: 0%, 0%;
-    background-position-y: 0%, 0%;
-    background-repeat: repeat, repeat;
-    background-attachment: scroll, scroll;
-    background-size: auto, auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-    transition: 0s linear;
-    -webkit-transition: 0s linear;
-    -moz-transition: 0s linear;
-    -ms-transition: 0s linear;
-    -o-transition: 0s linear;
+    object-fit: cover;
+}
+
+.banner h2 {
+    position: absolute;
+    font-family: "Bebas Neue", cursive;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000f0;
+    font-size: 8vw;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 97.5vh;
+    mix-blend-mode: darken;
 }

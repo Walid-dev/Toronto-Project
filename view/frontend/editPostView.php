@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<section id="editPostSection">
+<div class="backend_view" id="editPostSection">
     <form action="index.php?action=updateArticle&amp;id=<?= $post['id'] ?>" method="post" enctype="multipart/form-data" class="form_wrapper">
         <div class="form_wrapper_title">
             <a href="index.php" class="wrapper_btn btn btn-sm btn-info">Retour</a>
@@ -45,7 +45,7 @@
             <button class="btn btn-info mb-5" type="submit" name="update">Sauvegarder</button>
         </div>
     </form>
-</section>
+</div>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

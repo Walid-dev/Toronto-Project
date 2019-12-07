@@ -17,7 +17,7 @@ class GetWeather {
                 let icon = data.weather[0].icon;
                 let temperature = Math.round(data.main.temp);
                 //  document.getElementById(`${weathField}`).innerHTML = `${temperature}` + "°" + " -> " + `${description}`;
-                document.getElementById(`${weathField}`).innerHTML = `${temperature}` + "°";
+                document.getElementById(`${weathField}`).innerHTML = `${temperature}`;
 
                 document.getElementById(`${weathIcon}`).innerHTML =
                     "<img class=" +

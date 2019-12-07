@@ -21,6 +21,7 @@ class CreateMap {
         this.addClusters = function() {
             let cluster = L.markerClusterGroup();
             let markers = L.marker([43.653226, -79.3831843]).addTo(cluster);
+
             mymap.addLayer(cluster);
         };
 

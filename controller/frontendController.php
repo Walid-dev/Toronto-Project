@@ -31,6 +31,11 @@ function meteoBanner()
     require('view/frontend/meteoBanner.php');
 }
 
+function bannerSection()
+{
+    require('view/frontend/bannerView.php');
+}
+
 function mapSection()
 {
     require('view/frontend/mapSection.php');
@@ -135,7 +140,18 @@ function updateArticle($id, $author, $title, $content, $idUser, $file, $type)
 
 function shortArticle($data)
 {
-    $textShortened = $data['content'];
+    $textShortened = strip_tags($data['content']);
+    if (strlen($textShortened) > 100) {
+        $maxLength = 99;
+        $textShortened = substr($textShortened, 0, $maxLength);
+    }
+    echo  $textShortened . '...';
+}
+
+
+function shortenText($textShortened)
+{
+    $textShortened = strip_tags($textShortened);
     if (strlen($textShortened) > 250) {
         $maxLength = 249;
         $textShortened = substr($textShortened, 0, $maxLength);
@@ -197,10 +213,13 @@ function addComment($postId, $author, $comment)
     $commentManager = new CommentManager();
     $affectedLines = $commentManager->postComment($postId, $author, $comment);
 
+
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le commentaire !');
     } else {
-        header('Location: index.php?action=post&id=' . $postId);
+        header('Location: index.php?action=post&id=' . $postId . "#navHeader");
+        $_SESSION['message'] = "Commentaire ajouté !";
+        $_SESSION['msg_type'] = "info";
     }
 }
 
@@ -221,6 +240,8 @@ function checkUserTypeToComment($post, $text)
     }
 }
 
+
+
 function signal($id, $variable, $commentStatus)
 {
     $commentManager = new CommentManager();
@@ -229,7 +250,7 @@ function signal($id, $variable, $commentStatus)
     $_SESSION['message'] = "L'article a été signalé.";
     $_SESSION['msg_type'] = "warning";
 
-    header('Location: index.php?action=post&id=' . $_GET['id'] . '#commentBox');
+    header('Location: index.php?action=post&id=' . $_GET['id'] . '#navHeader');
 }
 
 function signalComment($comment)

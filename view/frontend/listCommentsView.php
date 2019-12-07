@@ -5,7 +5,6 @@
         <a id="tableCommentsTitle" class="up btn return_btn mb-5 mt-5 ml-5" href="index.php#sectionArticles">Retour à la liste des chapitres</a>
     </div>
     <h2 class="mb-5 mt-2 text-center">Tableau des commentaires</h2>
-    <hr>
     <div id="listCommentsBox" class="row col-md-10 col-sm-12">
         <table id="commentsTable" class="table table-hover table-responsive table-dark">
             <thead>

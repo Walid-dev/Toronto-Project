@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<div class="container-fluid" id="addPostSection">
+<div class="backend_view" id="addPostSection">
     <form method="post" enctype="multipart/form-data" class="form_wrapper">
         <div class="form_wrapper_title">
             <a href="index.php" class="wrapper_btn btn btn-sm btn-info">Retour</a>

@@ -1,16 +1,14 @@
 <?php
 class PostManager extends Manager
 {
-    public function getPosts($test)
+    public function getPosts($addOrArticle)
     {
         $db = Manager::dbConnect();
 
 
 
-
-
-        $req = $db->prepare('SELECT id, type FROM posts WHERE type=' . $test . '');
-        $req->execute(array($test));
+        $req = $db->prepare('SELECT id, type FROM posts WHERE type=' . $addOrArticle . '');
+        $req->execute(array($addOrArticle));
         $articlesCount = $req->rowCount($db);
 
         $perPage = 8;
@@ -25,19 +23,19 @@ class PostManager extends Manager
 
 
 
-        $req = $db->prepare('SELECT id, title, content, author, idUser, image, type, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts WHERE type=' . $test . ' ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
+        $req = $db->prepare('SELECT id, title, content, author, idUser, image, type, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts WHERE type=' . $addOrArticle . ' ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
         $req->execute(array('idUser'));
         return $req;
     }
 
-    public function pagination($test)
+    public function pagination($addOrArticle)
     {
         $db = Manager::dbConnect();
 
 
 
-        $req = $db->prepare('SELECT id, type FROM posts WHERE type=' . $test . ' ');
-        $req->execute(array($test));
+        $req = $db->prepare('SELECT id, type FROM posts WHERE type=' . $addOrArticle . ' ');
+        $req->execute(array($addOrArticle));
         $articlesCount = $req->rowCount($db);
 
         $perPage = 8;
@@ -57,7 +55,7 @@ class PostManager extends Manager
             if ($i == $cPage) {
                 echo "<span>$i</span>";
             } else {
-                echo " <a href=\"index.php?p=$i#articleSection$test\">$i</a>";
+                echo " <a href=\"index.php?p=$i#articleSection$addOrArticle\">$i</a>";
             }
             // echo '<script type="text/javascript">window.onload = function() { document.getElementById("content").innerHTML = "' . $pagination . '"; }</script>';
         }

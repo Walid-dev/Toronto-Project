@@ -35,7 +35,7 @@
                                </form>
                            </div>
                            <div class="modal-footer login_modal_footer">
-                               <button type="button" class="up btn btn-md btn-info" data-dismiss="modal">Fermer</button>
+                               <button type="button" class="up btn btn-md btn-danger" data-dismiss="modal">Fermer</button>
                            </div>
                        </div>
 
@@ -63,13 +63,13 @@
                                        <input class="form-control form-control mr-sm-2 mt-2" type="password" name="pwd-repeat" placeholder="Répeter Mot de passe">
                                    </div>
                                    <div class="form-group">
-                                       <button id="validate" type="submit" class="btn-trans btn-blue mt-3" name="signup-submit">Créer</button>
+                                       <button id="validate" type="submit" class="btn btn-info mt-3" name="signup-submit">Créer</button>
                                    </div>
                                </form>
                            </div>
 
                            <div class="modal-footer">
-                               <button type="button" class="btn-trans btn-danger" data-dismiss="modal">Fermer</button>
+                               <button type="button" class="btn btn-md btn-danger" data-dismiss="modal">Fermer</button>
                            </div>
                        </div>
 

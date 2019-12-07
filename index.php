@@ -69,7 +69,7 @@ try {
                     $file = addslashes($_FILES["image"]["tmp_name"]);
                     $file = file_get_contents($file);
                     $file = base64_encode($file);
-                    postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), $_POST['content'], strip_tags($_POST['idUser']), strip_tags($file), strip_tags($_POST['type']));
+                    postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), strip_tags($_POST['content']), strip_tags($_POST['idUser']), strip_tags($file), strip_tags($_POST['type']));
                 } elseif ($_GET['action'] == 'delete') {
                     deleteArticle($_GET['id']);
                 } elseif ($_GET['action'] == 'getMessage') {
