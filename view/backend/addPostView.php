@@ -26,7 +26,13 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="file" name="image" id="image">
+                <input type="file" name="image" id="image" value="image 1">
+            </div>
+            <div class="form-group">
+                <input type="file" name="image2" id="image" value="image 2">
+            </div>
+            <div class="form-group">
+                <input type="file" name="image3" id="image" value="image 3">
             </div>
         </div>
         <div class="form_wrapper_tiny form-group">

@@ -54,6 +54,10 @@ section {
     padding: 8vh 0;
 }
 
+.backend_view {
+    padding: 8vh 15px;
+}
+
 .title_text {
     font-family: "Open Sans Condensed", serif;
     width: 65%;
@@ -305,6 +309,7 @@ section {
     padding: 8px 0;
     border-radius: 2px;
     cursor: pointer;
+    min-height: 50px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
@@ -441,59 +446,43 @@ hr[data-scroll="in"] {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 1rem;
 }
 
 .dashboard_box {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    background-image: linear-gradient(to bottom, #0d0d0d 50%, #1c1b1b 100%);
-    border: 1px solid #313131;
-    width: 90%;
-    margin-left: 5%;
-    margin: 25px 10px;
-    padding: 20px 30px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: 0.1s linear;
-    -webkit-transition: 0.1s linear;
-    -moz-transition: 0.1s linear;
-    -ms-transition: 0.1s linear;
-    -o-transition: 0.1s linear;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 8px;
+    padding: 6px 0;
 }
 
 .dashboard_box:hover {
-    box-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 0px #fff;
+    box-shadow: 0 0 4px snow;
+    cursor: pointer;
 }
 
 .dashboard_inset_box {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    width: 100%;
 }
 
 .dasboard_inset1 {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
 }
 
 .dashboard_inset2 {
-    flex: 1.5;
-    display: flex;
-    flex-direction: column;
 }
 
 .dashboard_article_img {
+    width: 70px;
+    max-height: 50px;
     border-radius: 0.25rem;
     -webkit-border-radius: 0.25rem;
     -moz-border-radius: 0.25rem;
     -ms-border-radius: 0.25rem;
     -o-border-radius: 0.25rem;
+}
+
+.dashboard_article_title {
 }
 
 .dashboard_article_date {
@@ -668,7 +657,8 @@ hr[data-scroll="in"] {
     justify-content: space-evenly;
 }
 
-.content_article_post_box .btn {
+.content_article_post_box .btn,
+#messageBtn {
     position: absolute;
     bottom: 0;
     width: 100%;

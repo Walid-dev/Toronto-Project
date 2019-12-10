@@ -20,3 +20,5 @@
     </main>
     <footer>Pied de page</footer>
 </div>
+
+<script src="public/js/map.js"></script>

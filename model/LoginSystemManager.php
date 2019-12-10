@@ -77,9 +77,6 @@ class LoginSystemManager extends Manager
 
 
                 header("Location: index.php?login=success");
-
-                $_SESSION['message'] = "Vous etes maintenant connécté.";
-                $_SESSION['msg_type'] = "info";
             } else {
                 header("Location: index.php?error=wrongpwd");
             }
@@ -89,10 +86,10 @@ class LoginSystemManager extends Manager
 
     public function logout()
     {
-        session_start();
         session_unset();
         session_destroy();
 
-        header("Location: index.php?disconnected");
+        $_SESSION['message'] = "Vous etes maintenant déconnécté.";
+        $_SESSION['msg_type'] = "danger";
     }
 }

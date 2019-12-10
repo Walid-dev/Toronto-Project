@@ -15,26 +15,17 @@
         <?php while ($dashboardArticle = $dashboardArticles->fetch()) {
             ?>
             <div class="dashboard_box">
-                <div class="dashboard_inset_box">
-                    <div class="dasboard_inset1 mr-2">
-                        <?= '<img class="dashboard_article_img mr-4" src="data:image/jpeg;base64,' . $dashboardArticle['image'] . '" />' ?>
-                    </div>
-                    <div class="dashboard_inset2 ml-2 mt-3">
-                        <h3 class="dashboard_article_title"><?= strip_tags($dashboardArticle['title']) ?></h3>
-                        <p><?=
-                                shortenText(strip_tags($dashboardArticle['content']))
-                            ?></p>
-                        <span class="dashboard_article_date">Le <?= $dashboardArticle['creation_date_fr'] ?></span>
-                        <div class="dashboard_btn_box">
-                            <a class="btn btn-warning mt-3" href="index.php?action=post&amp;id=<?= $dashboardArticle['id'] . "#postContainer" ?>">Lire</a>
-                            <a href="index.php?action=edit&amp;id=<?= $dashboardArticle['id'] . "#editPostContainer" ?>" class="btn btn-info mt-3 ml-2">Editer</a>
-                            <a href="" class="btn btn-danger mt-3 ml-2" data-toggle="modal" data-target="#exampleModalCenter<?= strip_tags($dashboardArticle['id']) ?>">
-                                Supprimer
-                            </a>
-                        </div>
-
-                    </div>
+                <?= '<img class="dashboard_article_img mr-4" src="data:image/jpeg;base64,' . $dashboardArticle['image'] . '" />' ?>
+                <span class="dashboard_article_title ml-3"><?= strip_tags($dashboardArticle['title']) ?></span>
+                <span class="dashboard_article_date ml-3">Le <?= $dashboardArticle['creation_date_fr'] ?></span>
+                <div class="dashboard_btn_box ml-3">
+                    <a class="btn btn-warning" href="index.php?action=post&amp;id=<?= $dashboardArticle['id'] . "#postContainer" ?>">Lire</a>
+                    <a href="index.php?action=edit&amp;id=<?= $dashboardArticle['id'] . "#editPostContainer" ?>" class="btn btn-info ml-2">Editer</a>
+                    <a href="" class="btn btn-danger ml-2" data-toggle="modal" data-target="#exampleModalCenter<?= strip_tags($dashboardArticle['id']) ?>">
+                        Supprimer
+                    </a>
                 </div>
+
 
 
                 <!-- Modal -->
@@ -60,14 +51,46 @@
             </div>
         <?php
     }
+
     $dashboardArticles->closeCursor();
     ?>
+
 
     </div>
 </div>
 
 
-
+<div class="container">
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 
 

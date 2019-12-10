@@ -167,6 +167,9 @@ function login()
 {
     $loginSystemManager = new LoginSystemManager();
     $addUser = $loginSystemManager->login();
+
+    $_SESSION['message'] = "Vous etes maintenant connécté.";
+    $_SESSION['msg_type'] = "danger";
 }
 
 // Deconnect Users / Close Session
@@ -224,7 +227,6 @@ function addComment($postId, $author, $comment)
 }
 
 
-
 // Check if user and allow to add comment or display the signup modal
 function checkUserTypeToComment($post, $text)
 {
@@ -260,7 +262,7 @@ function signalComment($comment)
         {
             echo $comment['report'] + 1;
         } else {
-        echo $comment['report'] + 1;
+        echo $comment['report'];
     }
 }
 
@@ -295,7 +297,7 @@ function sendMessage($postId, $senderId, $recipient, $subject, $content)
 
 
     $_SESSION['message'] = "Le message à été envoyé";
-    $_SESSION['msg_type'] = "info";
+    $_SESSION['msg_type'] = "danger";
 
     header('Location: index.php?action=post&id=' . $postId);
 

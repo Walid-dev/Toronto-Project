@@ -25,6 +25,9 @@ $("#infoText")
 
 $("#save").click(function() {
     let image_name = $("#image").val();
+    let imageHeight = $("image").naturalHeight;
+    console.log(imageHeight);
+    console.log();
     if (image_name == "") {
         //   alert("Veuilez selectionner une image");
         //  return false;

@@ -37,3 +37,5 @@
         </div>
     </div>
 </div>
+
+<script src="public/js/weather.js"></script>

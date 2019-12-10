@@ -40,3 +40,17 @@ class CreateMap {
         };
     }
 }
+
+// Display TorontoMap
+
+const torontoMap = new CreateMap(
+    "mapid",
+    "43.653226",
+    "-79.3831843",
+    "13",
+    "pk.eyJ1Ijoid2xhZDM0IiwiYSI6ImNqeHA5N25qYTBhZnozbmwzMmdmczBtcGoifQ.hYSWIqrFTCmtKzfE56Y4iw"
+);
+
+torontoMap.displayMap();
+torontoMap.addClusters();
+torontoMap.disableEnableZoomMap();

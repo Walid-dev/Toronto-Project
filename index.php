@@ -31,8 +31,9 @@ try {
         addUser();
     } elseif (isset($_POST['logout-submit'])) {
         logout();
+        home();
     } elseif (isset($_POST['signal'])) {
-        signal(strip_tags($_POST['commentId']), strip_tags($_POST['report']), strip_tags($_POST['commentStatus']));
+        signal(strip_tags($_POST['commentId']), strip_tags($_POST['report'] + 1), strip_tags($_POST['commentStatus']));
     } elseif (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
             listPosts();
@@ -60,16 +61,28 @@ try {
                     dashboard();
                 } elseif ($_GET['action'] == 'sendMsg') {
                     if (!empty($_POST['postId']) && !empty($_POST['senderId']) && !empty($_POST['senderId']) && !empty($_POST['subject']) && !empty($_POST['content'])) {
-                        sendMessage(strip_tags($_POST['postId']), strip_tags($_POST['senderId']), strip_tags($_POST['recipient']), strip_tags($_POST['subject']), strip_tags($_POST['content']));
+                        sendMessage(strip_tags($_POST['postId']), base64_decode($_POST['senderId']), strip_tags($_POST['recipient']), strip_tags($_POST['subject']), strip_tags($_POST['content']));
                     } else {
                         throw new Exception('Tous les champs ne sont pas remplis.');
                     }
                 } else { }
                 if (isset($_POST['save'])) {
-                    $file = addslashes($_FILES["image"]["tmp_name"]);
-                    $file = file_get_contents($file);
-                    $file = base64_encode($file);
-                    postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), strip_tags($_POST['content']), strip_tags($_POST['idUser']), strip_tags($file), strip_tags($_POST['type']));
+                    if (
+                        !empty($_FILES['image']['tmp_name'])
+                        && file_exists($_FILES['image']['tmp_name'])
+                    ) {
+                        $file = addslashes($_FILES["image"]["tmp_name"]);
+                        $file = file_get_contents($file);
+                        $file = base64_encode($file);
+                        $fileSize = strlen($file);
+                        if ($fileSize < 65535) {
+                            postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), strip_tags($_POST['content']), strip_tags($_POST['idUser']), strip_tags($file), strip_tags($_POST['type']));
+                        } else {
+                            throw new Exception("La taille de l'image est trop grande");
+                        }
+                    } else {
+                        postArticle(strip_tags($_POST['author']), strip_tags($_POST['title']), strip_tags($_POST['content']), strip_tags($_POST['idUser']), NULL, strip_tags($_POST['type']));
+                    }
                 } elseif ($_GET['action'] == 'delete') {
                     deleteArticle($_GET['id']);
                 } elseif ($_GET['action'] == 'getMessage') {
@@ -103,6 +116,6 @@ try {
     }
 } catch (Exception $e) {
     $_SESSION['message'] = $e->getMessage();
-    $_SESSION['msg_type'] = "danger";
-    home();
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    die;
 }

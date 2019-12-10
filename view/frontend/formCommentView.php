@@ -1,9 +1,3 @@
-<?php
-if ($post['author'] != $_SESSION['userUid']) {
-    require('view/frontend/messageModalView.php');
-}
-?>
-
 <form id="commentForm" action="index.php?action=addComment&amp;id=<?= $post['id'] . "#commentForm" ?>" method="post">
     <div class="form-group">
         <input class="form-control" type="hidden" id="author" name="author" value="<?= $_SESSION['userUid'] ?>" />

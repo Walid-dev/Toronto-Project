@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Répondre à <?= $post['author'] ?></button>
+<button id="messageBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Répondre à <?= $post['author'] ?></button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -15,7 +15,7 @@
                         <input name="recipient" value="<?= $post['author'] ?>" type="hidden" class="form-control" id="">
                     </div>
                     <div class="form-group">
-                        <input name="senderId" value="<?= $_SESSION['userId'] ?>" type="hidden" class="form-control" id="">
+                        <input name="senderId" value="<?= base64_encode($_SESSION['userUid']) ?>" type="hidden" class="form-control" id="">
                     </div>
                     <div class="form-group">
                         <input name="postId" value="<?= $post['id'] ?>" type="hidden" class="form-control" id="">

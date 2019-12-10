@@ -1,6 +1,9 @@
 <?php ob_start(); ?>
-<div id="messageSection" class="container">
-    <h1>Hello</h1>
+<div id="messageSection" class="backend_view container">
+    <div class="section_h1_titles pt-4 pb-2">
+        <img class="img-fluid text-center" src="public/images/messages.png" width="120" alt="">
+        <hr class="hr_title mb-2 mt-3">
+    </div>
     <h4><?= $_SESSION['userUid'] ?></h4>
 
     <?php
@@ -14,13 +17,13 @@
     <?php
     while ($message = $messages->fetch()) {
         ?>
-        <div class="row">
-            <h5><?= strip_tags($message['content']) ?></h5>
-            <h1><?= strip_tags($message['recipient']) ?></h1>
-            <a href="index.php?action=post&amp;id=<?= $message['id'] . "#postContainer" ?>" class="btn btn-md btn-info">Lire...</a>
+        <div class="row msg-list_box">
+            <div>Sujet: <?= strip_tags($message['subject']) ?></div>
+            <div>Expéditeur: <?= strip_tags($message['recipient']) ?></div>
+            <div>Message: <?= strip_tags($message['content']) ?></div>
             <?php
-            if ($post['author'] != $_SESSION['userUid']) {
-                require('view/frontend/messageModalView.php');
+            if ($message['sender'] != $_SESSION['userUid']) {
+                require('view/backend/messageListModalView.php');
             }
             ?>
         </div>

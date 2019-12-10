@@ -50,8 +50,7 @@
     <script src="public/js/scroll-out.js"></script>
     <script src="public/js/navBar.js"></script>
     <script src="public/js/tools.js"></script>
-    <script src="public/js/weather.js"></script>
-    <script src="public/js/map.js"></script>
+
     <script src="public/js/main.js"></script>
     <script>
         ScrollOut({
