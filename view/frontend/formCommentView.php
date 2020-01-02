@@ -1,13 +1,11 @@
 <form id="commentForm" action="index.php?action=addComment&amp;id=<?= $post['id'] . "#commentForm" ?>" method="post">
     <div class="form-group">
-        <label for="author">Auteur</label><br />
-        <input class="form-control" type="text" id="author" name="author" required oninvalid="this.setCustomValidity('Remplir le champs svp')" oninput="setCustomValidity('')" />
+        <input class="form-control" type="hidden" id="author" name="author" value="<?= $_SESSION['userUid'] ?>" />
     </div>
     <div class="form-group">
-        <label for="comment">Commentaire</label><br />
-        <textarea class="form-control" id="comment" name="comment" required oninvalid="this.setCustomValidity('Ajouter un commentaire.')" oninput="setCustomValidity('')"></textarea>
+        <textarea class="form-control" placeholder="Laisser un commentaire.." id="comment" name="comment" rows="4" required oninvalid="this.setCustomValidity('Ajouter un commentaire.')" oninput="setCustomValidity('')"></textarea>
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button id="formCommentBtn" type="submit" class="btn btn-info">Ajouter commentaire</button>
     </div>
 </form>

@@ -1,15 +1,17 @@
 <?php
 class PostManager extends Manager
 {
-    public function getPosts()
+    public function getPosts($addOrArticle)
     {
         $db = Manager::dbConnect();
 
-        $req = $db->prepare('SELECT id FROM posts');
-        $req->execute(array('id'));
+
+
+        $req = $db->prepare('SELECT id, type FROM posts WHERE type=' . $addOrArticle . '');
+        $req->execute(array($addOrArticle));
         $articlesCount = $req->rowCount($db);
 
-        $perPage = 4;
+        $perPage = 8;
         $cPage = 1;
         $nbPages = ceil($articlesCount / $perPage);
 
@@ -19,20 +21,23 @@ class PostManager extends Manager
             $cPage = 1;
         }
 
-        $req = $db->prepare('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
-        $req->execute(array('id'));
+
+
+        $req = $db->prepare('SELECT id, title, content, author, idUser, image, type, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts WHERE type=' . $addOrArticle . ' ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
+        $req->execute(array('idUser'));
         return $req;
     }
 
-    public function pagination()
+    public function pagination($addOrArticle)
     {
         $db = Manager::dbConnect();
 
-        $req = $db->prepare('SELECT id FROM posts');
-        $req->execute(array('id'));
+
+        $req = $db->prepare('SELECT id, type FROM posts WHERE type=' . $addOrArticle . ' ');
+        $req->execute(array($addOrArticle));
         $articlesCount = $req->rowCount($db);
 
-        $perPage = 4;
+        $perPage = 8;
         $cPage = 1;
         $nbPages = ceil($articlesCount / $perPage);
 
@@ -49,7 +54,7 @@ class PostManager extends Manager
             if ($i == $cPage) {
                 echo "<span>$i</span>";
             } else {
-                echo " <a href=\"index.php?p=$i#sectionArticles\">$i</a>";
+                echo " <a href=\"index.php?p=$i#articleSection$addOrArticle\">$i</a>";
             }
             // echo '<script type="text/javascript">window.onload = function() { document.getElementById("content").innerHTML = "' . $pagination . '"; }</script>';
         }
@@ -61,24 +66,35 @@ class PostManager extends Manager
     public function getPost($postId)
     {
         $db = Manager::dbConnect();
-        $req = $db->prepare('SELECT id, title, content, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
+        $req = $db->prepare('SELECT id, title, content, author, image, type, idUser, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts WHERE id = ?');
         $req->execute(array($postId));
         $post = $req->fetch();
 
         return $post;
     }
 
+
+
     public function addArticle()
     {
-        require('view/frontend/addPostView.php');
+        require('view/backend/addPostView.php');
     }
 
 
-    public function postArticle($author, $title, $content)
+    public function postArticle($author, $title, $content, $idUser, $file, $type)
     {
         $db = Manager::dbConnect();
-        $article = $db->prepare('INSERT INTO posts(author, title, content, creation_date) VALUES(?, ?, ?, NOW())');
-        $article->execute(array($author, $title, $content));
+
+        $article = $db->prepare('INSERT INTO posts(author, title, content, idUser, image, type, creation_date) VALUES(?, ?, ?, ?, ?, ?, NOW())');
+        $article->execute(array($author, $title, $content, $idUser, $file, $type));
+    }
+
+    public function postEvent($userUid, $eventName, $eventPlace, $eventLat, $eventLon, $eventDate, $eventTime)
+    {
+        $db = Manager::dbConnect();
+
+        $event = $db->prepare('INSERT INTO events(userUid, eventName, eventPlace, eventLat, eventLon, eventDate, eventTime ) VALUES(?, ?, ?, ?, ?, ?, ?)');
+        $event->execute(array($userUid, $eventName, $eventPlace, $eventLat, $eventLon, $eventDate, $eventTime));
     }
 
     public function deleteFromDataBase($id)
@@ -89,10 +105,38 @@ class PostManager extends Manager
         //  $db->query("DELETE FROM comments WHERE post_id=$id");
     }
 
-    public function updatePost($id, $author, $title, $content)
+    public function updatePost($id, $author, $title, $content, $idUser, $file, $type)
     {
         $db = Manager::dbConnect();
-        $updateArticle = $db->prepare("UPDATE posts SET author='$author' , title='$title', content='$content' WHERE id='$id'");
-        $updateArticle->execute(array($id, $author, $title, $content));
+        $updateArticle = $db->prepare("UPDATE posts SET author='$author' , title='$title', content='$content', idUser='$idUser', image='$file', type='$type' WHERE id='$id'");
+        $updateArticle->execute(array($id, $author, $title, $content, $idUser, $file, $type));
+    }
+
+    public function updatePostWithoutImg($id, $author, $title, $content, $idUser, $type)
+    {
+        $db = Manager::dbConnect();
+        $updateArticle = $db->prepare("UPDATE posts SET author='$author' , title='$title', content='$content', idUser='$idUser', type='$type' WHERE id='$id'");
+        $updateArticle->execute(array($id, $author, $title, $content, $idUser, $type));
+    }
+
+    public function dashboard()
+    {
+        $db = Manager::dbConnect();
+
+        $cPage = 1;
+        $perPage = 10;
+        $idUser = $_SESSION['userId'];
+        $req = $db->prepare('SELECT id, title, content, author, idUser, image, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts WHERE idUser=' . $idUser . ' ORDER BY creation_date DESC LIMIT ' . (($cPage - 1) * $perPage) . ', ' . $perPage . ' ');
+        $req->execute(array('idUser'));
+        return $req;
+    }
+
+    public function getPpImg($idUser)
+    {
+        $db = Manager::dbConnect();
+        $req = $db->prepare('SELECT pp_image FROM users WHERE idUsers=' . $idUser . ' ');
+        $req->execute(array('idUsers'));
+
+        return $req;
     }
 }

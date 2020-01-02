@@ -1,37 +1,41 @@
-<div id="meteoSection" class="">
-    <div class="box mt-3">
-        <div class="d-flex align-items-center">
-            <h4>Toronto</h4>
-            <div class="weather_icon_box" id="torontoIcon"></div>
+<div class="">
+    <div class="meteo_wrapper parallax">
+        <div class="weather_box">
+            <span class="weather_title mt-1">Toronto</span>
+            <div id="torontoIcon"></div>
+            <div class="weather_text">
+                <span class="weather_value" id="torontoWeath"></span><span class="weather_dot">°</span><span class="weather_celsius">C</span>
+            </div>
         </div>
-        <p class="text-center"><span id="torontoWeath"></span></p>
-    </div>
-    <div class="box mt-3">
-        <div class="d-flex align-items-center">
-            <h4>Montréal</h4>
-            <div class="weather_icon_box" id="montrealIcon"></div>
+        <div class="weather_box">
+            <span class="weather_title mt-1">Paris</span>
+            <div id="parisIcon"></div>
+            <div class="weather_text">
+                <span class="weather_value" id="parisWeath"></span><span class="weather_dot">°</span><span class="weather_celsius">C</span>
+            </div>
         </div>
-        <p class="text-center"><span id="montrealWeath"></span></p>
-    </div>
-    <div class="box mt-3">
-        <div class="d-flex align-items-center">
-            <h4>Ottawa</h4>
-            <div class="weather_icon_box" id="ottawaIcon"></div>
+        <div class="weather_box">
+            <span class="weather_title mt-1">Montréal</span>
+            <div id="montrealIcon"></div>
+            <div class="weather_text">
+                <span class="weather_value" id="montrealWeath"></span><span class="weather_dot">°</span><span class="weather_celsius">C</span>
+            </div>
         </div>
-        <p class="text-center"><span id="ottawaWeath"></span></p>
-    </div>
-    <div class="box mt-3">
-        <div class="d-flex align-items-center">
-            <h4>Vancouver</h4>
-            <div class="weather_icon_box" id="vancouverIcon"></div>
+        <div class="weather_box">
+            <span class="weather_title mt-1">Ottawa</span>
+            <div id="ottawaIcon"></div>
+            <div class="weather_text">
+                <span id="ottawaWeath"></span><span>°</span><span class="weather_celsius">C</span>
+            </div>
         </div>
-        <p class="text-center"><span id="vancouverWeath"></span></p>
-    </div>
-    <div class="box mt-3">
-        <div class="d-flex align-items-center">
-            <h4>Paris</h4>
-            <div class="weather_icon_box" id="parisIcon"></div>
+        <div class="weather_box">
+            <span class="weather_title mt-1">Vancouver</span>
+            <div id="vancouverIcon"></div>
+            <div class="weather_text">
+                <span class="weather_value" id="vancouverWeath"></span><span class="weather_dot">°</span><span class="weather_celsius">C</span>
+            </div>
         </div>
-        <p class="text-center"><span id="parisWeath"></span></p>
     </div>
 </div>
+
+<script src="public/js/weather.js"></script>
